@@ -1,0 +1,102 @@
+.login-container {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	display: flex;
+	font-family: var(--inter);
+	background: rgba(0, 0, 0, 0.452);
+	justify-content: center;
+	align-items: center;
+	z-index: 0;
+	animation: blur-out 0.2s linear both;
+}
+.login-container .container {
+	position: absolute;
+	display: flex;
+	background: white;
+	animation: scale-up-center 0.4s;
+	border-radius: 10px;
+}
+.login-container .container .image {
+	display: flex;
+	width: 200px;
+	padding: 10px;
+	border-radius: 20px 0 0 20px;
+	background: white;
+}
+.login-container .container .image .bg {
+	background: var(--main-text);
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+.login-container .form-container {
+	display: flex;
+	flex-direction: column;
+	background: white;
+	padding: 100px 20px;
+}
+.login-container .form-container h1 {
+	text-transform: capitalize;
+	font-size: 2rem;
+	font-weight: 800;
+	letter-spacing: -0.07rem;
+	color: var(--main-text);
+}
+.login-container .form-container p {
+	text-transform: capitalize;
+	margin-bottom: 50px;
+	font-weight: 500;
+	color: var(--main-text);
+}
+.login-container .form-container form {
+	width: 300px;
+	display: flex;
+	width: inherit;
+	gap: 20px;
+	flex-direction: column;
+}
+.login-container .form-container form .name {
+	display: flex;
+	justify-content: space-between;
+	width: inherit;
+}
+.login-container .form-container form .name input {
+	width: 100px;
+}
+.login-container .form-container form input {
+	padding: 10px;
+	border: solid 1px var(--stroke);
+	border-radius: 5px;
+	outline: none;
+	color: var(--main-text);
+}
+.login-container .form-container form input::placeholder {
+	color: var(--light-text);
+	text-transform: capitalize;
+}
+
+@keyframes blur-out {
+	from {
+		-webkit-backdrop-filter: blur(0px);
+		backdrop-filter: blur(0px);
+		opacity: 0;
+	}
+	to {
+		-webkit-backdrop-filter: blur(20px);
+		backdrop-filter: blur(20px);
+	}
+}
+@keyframes scale-up-center {
+	0% {
+		transform: scale(0.5);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
+}

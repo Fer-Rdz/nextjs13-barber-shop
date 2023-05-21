@@ -1,0 +1,111 @@
+@import "./globals.css";
+.global-container {
+  display: flex;
+  align-items: start;
+  font-family: var(--inter);
+}
+.global-container .calendar-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+.global-container .calendar-container .title {
+  display: flex;
+  text-transform: capitalize;
+  justify-content: center;
+  font-family: var(--inter);
+  color: var(--main-text);
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  letter-spacing: -0.05rem;
+}
+.global-container .calendar-container .calendar-box {
+  box-shadow: 0 0 50px 0 var(--shadow);
+  background: white;
+  border-radius: 10px;
+}
+.global-container .calendar-container .calendar-box span {
+  font-family: var(--inter);
+  font-weight: 500;
+  padding: 10px;
+}
+.global-container .calendar-container .month-changer {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.global-container .calendar-container .calendar-body {
+  padding: 30px;
+  border-radius: 10px;
+}
+.global-container
+  .calendar-container
+  .calendar-box
+  .global-container
+  .calendar-container
+  .calendar-body
+  .days-container
+  .days
+  th {
+  font-size: 0.8rem;
+  font-family: var(--inter);
+  font-weight: 500;
+}
+.calendar-body .day-number .day {
+  padding: 12px;
+  border: solid 1px transparent;
+  outline: none;
+  font-family: var(--inter);
+  font-weight: 500;
+  font-size: 1rem;
+  background: transparent;
+  transition: 300ms;
+}
+.calendar-body .day-number .day:hover {
+  cursor: pointer;
+  background: var(--main-text);
+  transform: scale(125%);
+  color: white;
+  box-shadow: 0 0 50px 0 var(--shadow);
+}
+.calendar-body .day-number .past {
+  color: var(--alert-text);
+  pointer-events: none;
+  display: none;
+}
+.calendar-body .day-number .day .selected {
+  background: red !important;
+  display: none;
+}
+.calendar-body .day-number .past:hover {
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  cursor: not-allowed;
+}
+.schedule {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  box-shadow: 0 0 50px 0 var(--shadow);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+.schedule button:disabled {
+  display: none;
+}
+.schedule button {
+  outline: none;
+  padding: 5px;
+  border: solid 1px transparent;
+  background: transparent;
+  font-family: var(--inter);
+  transition: 300ms;
+}
+.schedule button:hover {
+  background: var(--main-text);
+  color: white;
+  box-shadow: 0 0 50px 0 var(--shadow);
+}

@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+:root {
+  --inter: "Inter", sans-serif;
+  --logo: "Roboto Condensed", sans-serif;
+  --main-color: #dff0ff;
+  --stroke: #c9dbf0;
+  --light-text: #8299b3;
+  --main-text: #222a36;
+  --unhover-text: #374458;
+  --logo-color: invert(11%) sepia(37%) saturate(430%) hue-rotate(175deg)
+    brightness(92%) contrast(95%);
+  --shadow: #0000001e;
+  --alert: #f8888828;
+  --alert-text: #ff5555a1;
+}

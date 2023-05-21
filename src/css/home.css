@@ -1,0 +1,70 @@
+@import "./globals.css";
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 800px;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--inter);
+  border-bottom: dotted 2px var(--stroke);
+}
+.hero h1 {
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  font-family: var(--logo);
+  color: var(--main-text);
+}
+.hero .hero-text {
+  width: 750px;
+}
+.hero img {
+  width: 100px;
+  height: 100px;
+  filter: var(--logo-color);
+}
+.hero .hero-text .phrases {
+  text-transform: capitalize;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.1rem;
+  color: var(--main-text);
+  text-align: center;
+  text-shadow: 0 5px 10px var(--shadow);
+}
+
+.fade {
+  animation: fade 1s;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero .search {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: -20px;
+  border: solid 1px var(--light-text);
+  padding: 10px;
+  border-radius: 5px;
+  width: 200px;
+  background: var(--main-color);
+}
+.hero .search:hover {
+  cursor: pointer;
+}
+.hero .search span {
+  color: var(--light-text);
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 0.8rem;
+  margin-left: 5px;
+}

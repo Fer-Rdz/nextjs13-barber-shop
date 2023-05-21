@@ -1,0 +1,30 @@
+@import "./globals.css";
+
+.bookings-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+.bookings-container .calendar-bg {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.bookings-container .calendar-bg .booking-info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-shadow: 0 0 50px 0 var(--shadow);
+  width: 300px;
+  height: calc(100vh - 90px);
+  margin-top: 90px;
+}
+.bookings-container .calendar-bg .booking-info .info {
+  display: flex;
+  padding: 20px;
+}
+.bookings-container .calendar-bg .booking-info .info h1 {
+  text-transform: capitalize;
+}

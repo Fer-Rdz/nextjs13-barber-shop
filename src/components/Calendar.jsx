@@ -183,95 +183,109 @@ const Calendar = () => {
   });
   return (
     <>
-      <div className="global-container">
-        <section className="calendar-container">
-          {/*<div className="title">
-            <h1>selecciona el dia para tu cita</h1>
-  </div>*/}
-          <div className="calendar-box" id="container">
-            <div className="month-changer">
-              <button onClick={prevMonth}>Prev</button>
-              <span>
-                {monthName} {year}
-              </span>
-              <button onClick={nextMonth}>Next</button>
-            </div>
-            <table className="calendar-body">
-              <thead className="days-container">
-                <tr className="days">
-                  {["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"].map(
-                    (day) => (
-                      <th key={day}>{day}</th>
-                    )
-                  )}
-                </tr>
-              </thead>
-              <tbody className="day-number">
-                {chunks(days, 7).map((week, i) => (
-                  <tr key={i}>
-                    {week.map((day, j) => (
-                      <td key={j}>
-                        {day && (
-                          <p
-                            onClick={() => handleDayClick(day)}
-                            className={`day ${
-                              day === today.getDate() &&
-                              month === today.getMonth()
-                                ? "current"
-                                : ""
-                            } ${day === selectedDate ? "selected" : ""} ${
-                              isDayPast(day) ? "past" : ""
-                            }`}
-                            disabled={isDayPast(day)}
-                          >
-                            {day}
-                          </p>
-                        )}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+      <section className="main-booking-container">
+        <div className="booking-container">
+          <div className="book-title">
+            <h1>selecciona tu fecha</h1>
           </div>
-        </section>
-        <div className="schedule">
-          <h1>horarios</h1>
-          {horasDisponibles.map((horas) => (
-            <button
-              key={horas}
-              value={horas}
-              // disabled={
-              //   !selectedDate || horasOcupadas[selectedDate].includes(horas)
-              // }
-              disabled={
-                !selectedDate ||
-                horasOcupadas.some(
-                  (item) =>
-                    item.date === selectedDate && item.bookingTime === horas
-                )
-              }
-              onClick={(e) => handleGetInitTime(e.target.value)}
-              className={horasOcupadas.includes(horas) ? "disabledlink" : ""}
-            >
-              {horas}
-            </button>
-          ))}
+          <div className="global-container">
+            <section className="calendar-container">
+              {/*<div className="title">
+            <h1>selecciona el dia para tu cita</h1>
+          </div>*/}
+              <div className="calendar-box" id="container">
+                <div className="month-changer">
+                  <button onClick={prevMonth}>Prev</button>
+                  <span>
+                    {monthName} {year}
+                  </span>
+                  <button onClick={nextMonth}>Next</button>
+                </div>
+                <table className="calendar-body">
+                  <thead className="days-container">
+                    <tr className="days">
+                      {["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"].map(
+                        (day) => (
+                          <th key={day}>{day}</th>
+                        )
+                      )}
+                    </tr>
+                  </thead>
+                  <tbody className="day-number">
+                    {chunks(days, 7).map((week, i) => (
+                      <tr key={i}>
+                        {week.map((day, j) => (
+                          <td key={j}>
+                            {day && (
+                              <p
+                                onClick={() => handleDayClick(day)}
+                                className={`day ${
+                                  day === today.getDate() &&
+                                  month === today.getMonth()
+                                    ? "current"
+                                    : ""
+                                } ${day === selectedDate ? "selected" : ""} ${
+                                  isDayPast(day) ? "past" : ""
+                                }`}
+                                disabled={isDayPast(day)}
+                              >
+                                {day}
+                              </p>
+                            )}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+          <div className="schedule-title">
+            <h1>selecciona una hora</h1>
+          </div>
+          <div className="schedule">
+            {horasDisponibles.map((horas) => (
+              <button
+                key={horas}
+                value={horas}
+                // disabled={
+                //   !selectedDate || horasOcupadas[selectedDate].includes(horas)
+                // }
+                disabled={
+                  !selectedDate ||
+                  horasOcupadas.some(
+                    (item) =>
+                      item.date === selectedDate && item.bookingTime === horas
+                  )
+                }
+                onClick={(e) => handleGetInitTime(e.target.value)}
+                className={horasOcupadas.includes(horas) ? "disabledlink" : ""}
+              >
+                {horas}
+              </button>
+            ))}
+          </div>
+          <div className="services">
+            {services?.map((services) => (
+              <button
+                key={services.id}
+                value={services.id}
+                onClick={() => handleServiceClick(services.id)}
+              >
+                {services.name}
+                {services.time}
+                <span className="service-price"> ${services.price}</span>
+              </button>
+            ))}
+          </div>
         </div>
-        <div>
-          {services?.map((services) => (
-            <button
-              key={services.id}
-              value={services.id}
-              onClick={() => handleServiceClick(services.id)}
-            >
-              {services.name}
-              {services.time}
-            </button>
-          ))}
+        <div className="book-info">
+          <div className="price">
+            <button onClick={submitBooking}>agendar cita</button>
+          </div>
         </div>
-        <button onClick={submitBooking}>submit</button>
-      </div>
+      </section>
     </>
   );
 };

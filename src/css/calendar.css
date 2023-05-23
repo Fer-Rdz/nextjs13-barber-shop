@@ -1,15 +1,86 @@
 @import "./globals.css";
-.global-container {
+::-webkit-scrollbar {
+  background: white;
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--main-text);
+}
+.booking-container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: auto auto 1fr;
+  grid-template-rows: auto 1fr;
+}
+.booking-container .global-container {
   display: flex;
-  align-items: start;
+  grid-column: 2/2;
+  gap: 30px;
+  align-items: flex-start;
   font-family: var(--inter);
 }
-.global-container .calendar-container {
+.booking-container .global-container .calendar-container {
   display: flex;
   flex-direction: column;
-  padding: 0 20px;
+  transition: 300ms;
 }
-.global-container .calendar-container .title {
+.booking-container .book-title {
+  grid-column: 1/3;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: var(--inter);
+  text-transform: capitalize;
+}
+.main-booking-container {
+  display: flex;
+}
+.main-booking-container .book-info {
+  display: flex;
+  width: 400px;
+  border-radius: 10px;
+  background: white;
+  align-items: start;
+  justify-content: flex-start;
+  padding: 20px;
+}
+.main-booking-container .book-info button {
+  display: flex;
+}
+.services {
+  display: flex;
+  flex-direction: column;
+  height: 303px;
+  gap: 20px;
+  padding: 50px;
+  background: white;
+  border-radius: 10px;
+  grid-row: 2/2;
+  grid-column: 1/2;
+  overflow: auto;
+}
+.services button span {
+  font-weight: 700;
+  padding: 0 10px;
+}
+.services button {
+  outline: none;
+  padding: 20px;
+  background: var(--main-color);
+  color: var(--main-text);
+  border: 10px;
+  font-family: var(--inter);
+  text-transform: capitalize;
+  border-radius: 10px;
+  transition: 300ms;
+  box-shadow: 0 0;
+}
+.services button:hover {
+  transform: scale(120%);
+}
+.booking-container .global-container .calendar-container .title {
   display: flex;
   text-transform: capitalize;
   justify-content: center;
@@ -20,28 +91,29 @@
   margin-bottom: 30px;
   letter-spacing: -0.05rem;
 }
-.global-container .calendar-container .calendar-box {
-  box-shadow: 0 0 50px 0 var(--shadow);
+.booking-container .global-container .calendar-container .calendar-box {
   background: white;
   border-radius: 10px;
 }
-.global-container .calendar-container .calendar-box span {
+.booking-container .global-container .calendar-container .calendar-box span {
   font-family: var(--inter);
   font-weight: 500;
   padding: 10px;
 }
-.global-container .calendar-container .month-changer {
+.booking-container .global-container .calendar-container .month-changer {
   display: flex;
   justify-content: center;
   padding: 20px;
 }
-.global-container .calendar-container .calendar-body {
+.booking-container .global-container .calendar-container .calendar-body {
   padding: 30px;
   border-radius: 10px;
 }
-.global-container
+.booking-container
+  .global-container
   .calendar-container
   .calendar-box
+  .booking-container
   .global-container
   .calendar-container
   .calendar-body
@@ -72,7 +144,6 @@
 .calendar-body .day-number .past {
   color: var(--alert-text);
   pointer-events: none;
-  display: none;
 }
 .calendar-body .day-number .day .selected {
   background: red !important;
@@ -84,27 +155,41 @@
   transform: none;
   cursor: not-allowed;
 }
+.schedule-title {
+  grid-column: 1/3;
+  grid-row: 3/3;
+  background: white;
+  padding: 20px;
+  text-align: center;
+  font-family: var(--inter);
+  text-transform: capitalize;
+  border-radius: 10px;
+}
 .schedule {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   gap: 10px;
-  box-shadow: 0 0 50px 0 var(--shadow);
   background: white;
   padding: 20px;
   border-radius: 10px;
+  grid-row: 4/4;
+  grid-column: 1/3;
 }
 .schedule button:disabled {
   display: none;
 }
 .schedule button {
   outline: none;
-  padding: 5px;
+  padding: 10px;
   border: solid 1px transparent;
   background: transparent;
   font-family: var(--inter);
   transition: 300ms;
+  border-radius: 10px;
+  font-weight: 700;
 }
 .schedule button:hover {
+  cursor: pointer;
   background: var(--main-text);
   color: white;
   box-shadow: 0 0 50px 0 var(--shadow);

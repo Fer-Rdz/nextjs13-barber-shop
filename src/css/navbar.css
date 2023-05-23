@@ -6,6 +6,7 @@
   border-bottom: solid 1px var(--stroke);
   z-index: 1;
   font-family: var(--inter);
+  backdrop-filter: blur(20px);
 }
 .nav-container .user-drop {
   position: absolute;

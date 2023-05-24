@@ -45,9 +45,7 @@ const Home = () => {
   return (
     <>
       <section>
-        <Navbar />
         <article className="hero">
-          <Image className="logo" src={logo} alt="logo" />
           <h1>barbel</h1>
           <div className="hero-text">
             <p ref={phraseRef} className="phrases">

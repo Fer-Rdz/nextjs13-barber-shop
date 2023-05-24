@@ -15,13 +15,26 @@ export const getTimeByDate = async (req, res) => {
   res.json(times);
 };
 
+export const getTimeByUserId = async (req, res) => {
+  const { client_id } = req.params;
+  const times = await Date.findAll({
+    include: [Clients, Services],
+    where: {
+      client_id,
+    },
+  });
+  res.json(times);
+};
+
 export const saveDates = async (req, res) => {
-  const { id, date, bookingTime, isExpired, client_id, services } = req.body;
+  const { id, date, bookingTime, isExpired, client_id, services, totalPrice } =
+    req.body;
   const datesBooking = await Date.create({
     id,
     date,
     bookingTime,
     isExpired,
+    totalPrice,
     client_id,
   });
   await datesBooking.addServices(services);

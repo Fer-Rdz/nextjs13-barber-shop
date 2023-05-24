@@ -1,12 +1,15 @@
 import Link from "next/link";
 import Cookies from "js-cookie";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import axios from "axios";
+import "../css/login.css";
 
 const Login = ({ isOpen, onClose, children }) => {
   const getToken = Cookies.get("auth-token");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -18,7 +21,9 @@ const Login = ({ isOpen, onClose, children }) => {
       const token = response.data.data.token;
       Cookies.set("auth-token", token, { expires: 1 });
       if (!getToken) {
+        router.refresh();
         alert("autentiado");
+        onClose();
       } else {
         alert("no autenticado");
         alert("usuario no encontrado");
@@ -30,43 +35,46 @@ const Login = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
   return (
     <>
-      <section>
-        <form action="" className="form" id="form">
-          <div>
-            <Link href="/"></Link>
-          </div>
-          <div>
+      <section className="login-container">
+        <section className="container">
+          <form action="" className="form-container" id="form">
             <div>
-              <h1>iniciar sesion</h1>
-              <p>cambia tu estilo con nosotros</p>
+              <Link href="/"></Link>
             </div>
             <div>
-              <label>correo</label>
-              <input
-                type="email"
-                name="email"
-                value={email}
-                placeholder="user@email.com"
-                onChange={(event) => setEmail(event.target.value)}
-              />
+              <div>
+                <h1>iniciar sesion</h1>
+                <p>cambia tu estilo con nosotros</p>
+              </div>
+              <div>
+                <label>correo</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={email}
+                  placeholder="user@email.com"
+                  onChange={(event) => setEmail(event.target.value)}
+                />
+              </div>
+              <div>
+                <label>contraseña</label>
+                <input
+                  type="password"
+                  name="password"
+                  value={password}
+                  placeholder="contraseña"
+                  minLength={"8"}
+                  onChange={(event) => setPassword(event.target.value)}
+                />
+              </div>
+              <button onClick={handleSubmit}>ingresar</button>
+              <h6>
+                no estas registrado?<Link href="/register">registrate</Link>
+              </h6>
             </div>
-            <div>
-              <label>contraseña</label>
-              <input
-                type="password"
-                name="password"
-                value={password}
-                placeholder="contraseña"
-                minLength={"8"}
-                onChange={(event) => setPassword(event.target.value)}
-              />
-            </div>
-            <button onClick={handleSubmit}>ingresar</button>
-            <h6>
-              no estas registrado?<Link href="/register">registrate</Link>
-            </h6>
-          </div>
-        </form>
+            <button onClick={onClose}>cerrar</button>
+          </form>
+        </section>
         <div className="image"></div>
         {children}
       </section>

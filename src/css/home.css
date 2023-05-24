@@ -11,13 +11,14 @@
   border-bottom: dotted 2px var(--stroke);
 }
 .hero h1 {
-  text-transform: uppercase;
-  letter-spacing: 10px;
+  text-transform: capitalize;
+  font-size: 3rem;
   font-family: var(--logo);
   color: var(--main-text);
+  font-weight: normal;
 }
 .hero .hero-text {
-  width: 750px;
+  width: 800px;
 }
 .hero img {
   width: 100px;
@@ -26,9 +27,10 @@
 }
 .hero .hero-text .phrases {
   text-transform: capitalize;
-  font-size: 2.5rem;
-  font-weight: 800;
-  letter-spacing: -0.1rem;
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: var(--times);
+  font-style: italic;
   color: var(--main-text);
   text-align: center;
   text-shadow: 0 5px 10px var(--shadow);

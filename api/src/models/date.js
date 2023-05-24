@@ -18,6 +18,9 @@ export const Date = sequelize.define("dates", {
   isExpired: {
     type: DataTypes.BOOLEAN,
   },
+  totalPrice: {
+    type: DataTypes.DOUBLE,
+  },
 });
 
 export const Date_Services = sequelize.define(

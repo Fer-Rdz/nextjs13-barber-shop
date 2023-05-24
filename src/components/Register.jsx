@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import axios from "axios";
 import { useState } from "react";
+import "../css/login.css";
 
 const Register = ({ isOpen, onClose, children }) => {
   const [name, setName] = useState();
@@ -26,11 +27,12 @@ const Register = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
   return (
     <>
-      <section className="register">
-        <form action="">
-          <h1>registrate</h1>
-          <p>cambia tu estilo con nosotros</p>
-          <div className="container">
+      <section className="login-container">
+        <section className="container">
+          <form action="" className="form-container">
+            <h1>registrate</h1>
+            <p>cambia tu estilo con nosotros</p>
+
             <div className="user-name">
               <div className="name">
                 <label>nombre</label>
@@ -77,8 +79,8 @@ const Register = ({ isOpen, onClose, children }) => {
             <h6>
               ya tienes una cuenta?<Link href="/">inicia sesion</Link>
             </h6>
-          </div>
-        </form>
+          </form>
+        </section>
         <div className="image"></div>
         {children}
       </section>

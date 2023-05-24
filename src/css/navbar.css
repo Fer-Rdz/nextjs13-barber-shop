@@ -1,15 +1,14 @@
 @import "./globals.css";
 .nav-container {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 90px;
-  border-bottom: solid 1px var(--stroke);
   z-index: 1;
-  font-family: var(--inter);
+  font-family: var(--ibm);
   backdrop-filter: blur(20px);
 }
 .nav-container .user-drop {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -17,8 +16,9 @@
   margin-left: -50px;
   padding: 25px;
   background: var(--main-color);
-  box-shadow: 0 0 50px 0 var(--shadow);
+  border: solid 1px var(--stroke);
   border-radius: 15px;
+  color: var(--stroke);
 }
 .nav-container .user-drop .logout h2 {
   color: var(--alert-text);
@@ -29,7 +29,7 @@
   transition: 300ms;
 }
 .nav-container .user-drop div:hover {
-  transform: scale(110%);
+  color: white;
 }
 .nav-container .user-drop div section {
   padding: 10px;
@@ -42,10 +42,14 @@
   text-transform: capitalize;
   font-weight: 500;
   font-size: 1rem;
-  color: var(--unhover-text);
+  color: var(--stroke);
 }
 .nav-container .user-drop div span {
-  color: var(--unhover-text);
+  color: white;
+}
+.nav-container .user-drop div section h2,
+div span:hover {
+  color: white;
 }
 .nav-container .user-drop div:hover ~ .user-drop div section h2 {
   color: var(--main-text);
@@ -61,7 +65,7 @@
 .nav-container nav {
   display: flex;
   justify-content: space-between;
-  max-width: 1000px;
+  max-width: 1300px;
   min-height: 90px;
   margin: auto;
 }
@@ -98,10 +102,13 @@
 }
 .nav-container nav ul li .nav-logo {
   font-family: var(--logo);
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-weight: 600;
-  letter-spacing: 5px;
+  font-size: 1.3rem;
   color: var(--main-text);
+}
+.nav-container nav ul li .nav-logo:hover {
+  color: white;
 }
 .nav-container nav ul input {
   padding: 10px;
@@ -110,23 +117,32 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #8299b3;
+  color: var(--stroke);
   text-transform: capitalize;
   font-weight: 500 !important;
   font-size: 0.8rem;
-  letter-spacing: -0.03rem;
   transition: 300ms;
 }
 .nav-container nav ul li a:hover {
-  color: #293b52;
+  color: white;
 }
-.nav-container ul li a .nav-resgister {
-  background: #192a41;
+.nav-container ul li a .nav-login {
+  background: transparent;
   color: white;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 50px;
   transition: 400ms;
+  border: solid 1px white;
 }
-.nav-container nav ul li a .nav-resgister:hover {
-  background: #355a8f;
+.nav-container nav ul li a .nav-login:hover {
+  background: transparent;
+  color: white;
+}
+.nav-container ul li a .nav-register {
+  background: white;
+  color: black;
+  padding: 10px;
+  border-radius: 50px;
+  transition: 400ms;
+  border: solid 1px white;
 }

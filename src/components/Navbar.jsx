@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { BiUserCircle } from "react-icons/bi";
 import { FiLogOut } from "react-icons/fi";
+import { useRouter } from "next/navigation";
 import "@/css/navbar.css";
 import logo from "../../public/logo.svg";
 import Image from "next/image";
@@ -17,6 +18,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [login, setLogin] = useState(false);
   const getToken = Cookies.get("auth-token");
+  const router = useRouter();
 
   const handleClick = () => {
     if (getToken) {
@@ -59,8 +61,11 @@ const Navbar = () => {
   };
   const handleLogout = () => {
     Cookies.remove("auth-token");
-
+    router.push("/");
     window.location.reload();
+  };
+  const goToProfile = () => {
+    router.push("/profile");
   };
   return (
     <>
@@ -86,7 +91,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href="/">
+              <Link href="/testimonios">
                 <span>escribenos una reseña</span>
               </Link>
             </li>
@@ -114,7 +119,7 @@ const Navbar = () => {
                       <span>
                         <BiUserCircle />
                       </span>
-                      <section>
+                      <section onClick={goToProfile}>
                         <h2>mi perfil</h2>
                         <p>
                           entra a tu perfil para ver tus citas pendientes
@@ -137,7 +142,7 @@ const Navbar = () => {
               <div className="login-buttons">
                 <li>
                   <Link href="/" onClick={openLogin}>
-                    iniciar sesion
+                    <span className="nav-login">iniciar sesion</span>
                   </Link>
                 </li>
 

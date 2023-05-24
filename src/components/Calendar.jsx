@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
 import "@/css/calendar.css";
+import { useRouter } from "next/navigation";
 const Calendar = () => {
+  const router = useRouter();
   const [services, setServices] = useState(null);
   const [getInitTime, setGetInitTime] = useState(null);
   const today = new Date();
@@ -105,9 +107,32 @@ const Calendar = () => {
       setUserData(parseData);
     }
   }, []);
+  const getServiceName = (serviceId) => {
+    const selectedService = services.find(
+      (service) => service.id === serviceId
+    );
+    return selectedService ? selectedService.name : "";
+  };
+  const getServicePrice = (serviceId) => {
+    const selectedService = services.find(
+      (service) => service.id === serviceId
+    );
+    return selectedService ? selectedService.price : 0;
+  };
+  const [totalPrice, setTotalPrice] = useState(0);
   const [selectedServices, setSelectedServices] = useState([]);
   const handleServiceClick = (serviceId) => {
-    setSelectedServices([...selectedServices, serviceId]);
+    if (selectedServices.includes(serviceId)) {
+      // El servicio ya está seleccionado, así que lo eliminamos
+      setSelectedServices(selectedServices.filter((id) => id !== serviceId));
+      const price = getServicePrice(serviceId);
+      setTotalPrice(totalPrice - price);
+    } else {
+      // El servicio no está seleccionado, así que lo agregamos
+      setSelectedServices([...selectedServices, serviceId]);
+      const price = getServicePrice(serviceId);
+      setTotalPrice(totalPrice + price);
+    }
   };
 
   const submitBooking = async (event) => {
@@ -119,7 +144,9 @@ const Calendar = () => {
         isExpired: false,
         client_id: userData.id,
         services: selectedServices,
+        totalPrice: totalPrice,
       });
+      router.push("/profile");
     } catch (error) {
       console.log(error);
     }
@@ -143,7 +170,6 @@ const Calendar = () => {
           date: date.date,
           bookingTime: date.bookingTime,
         }));
-
       return horasOcupadas;
     } catch (error) {
       console.error("Error al obtener las horas ocupadas:", error);
@@ -186,7 +212,7 @@ const Calendar = () => {
       <section className="main-booking-container">
         <div className="booking-container">
           <div className="book-title">
-            <h1>selecciona tu fecha</h1>
+            <h1>selecciona tu fecha y los servicios</h1>
           </div>
           <div className="global-container">
             <section className="calendar-container">
@@ -282,7 +308,32 @@ const Calendar = () => {
         </div>
         <div className="book-info">
           <div className="price">
-            <button onClick={submitBooking}>agendar cita</button>
+            <div className="book-date">
+              <h1>fecha de la cita</h1>
+              <h1>{selectedDate}</h1>
+            </div>
+            <div className="book-time">
+              <h1>hora de la cita</h1>
+              <h2>{getInitTime}</h2>
+            </div>
+            <div className="book-services">
+              <h1>servicios de la cita</h1>
+              {selectedServices
+                .map((serviceId) => getServiceName(serviceId))
+                .join(", ")}
+            </div>
+            <div className="services-price">
+              <h1>precio total</h1>
+              <h2>${totalPrice}</h2>
+            </div>
+            <button
+              onClick={submitBooking}
+              disabled={
+                !selectedDate || !getInitTime || selectedServices.length === 0
+              }
+            >
+              agendar cita
+            </button>
           </div>
         </div>
       </section>

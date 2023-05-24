@@ -1,15 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Source+Code+Pro:wght@400;700&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
 :root {
   --inter: "Inter", sans-serif;
-  --logo: "Roboto Condensed", sans-serif;
-  --main-color: #dff0ff;
-  --stroke: #c9dbf0;
-  --light-text: #8299b3;
-  --main-text: #222a36;
-  --unhover-text: #374458;
-  --logo-color: invert(11%) sepia(37%) saturate(430%) hue-rotate(175deg)
-    brightness(92%) contrast(95%);
+  --logo: "Old English Text MT", sans-serif;
+  --mono: "Source Code Pro", monospace;
+  --times: "Times New Roman";
+  --ibm: "IBM Plex Sans";
+  --main-color: #000000;
+  --stroke: #727070;
+  --light-text: #ffffff;
+  --main-text: #ffffff;
+  --unhover-text: #ffffff;
+  --logo-color: invert(97%) sepia(0%) saturate(7493%) hue-rotate(79deg)
+    brightness(116%) contrast(98%);
+
   --shadow: #0000004b;
   --alert: #f8888828;
-  --alert-text: #ff5555a1;
+  --alert-text: #ff0000a1;
 }

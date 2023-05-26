@@ -1,0 +1,38 @@
+.main {
+  display: grid;
+  place-content: center;
+  width: 100%;
+  height: 100vh;
+  font-family: var(--crimson);
+}
+.main .logo {
+  text-transform: capitalize;
+  font-size: 3rem;
+}
+.main .logo span {
+  font-size: 1.2rem;
+}
+.main section {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  gap: 10px;
+}
+.main section article {
+  padding: 30px;
+  border: dashed 1px var(--stroke);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+.main section .users {
+  grid-area: 6 / 1 / 11 / 21;
+}
+.main section .bookings {
+  grid-area: 1 / 1 / 6 / 17;
+}
+.main section .price {
+  grid-area: 1 / 17 / 6 / 21;
+}

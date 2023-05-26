@@ -1,0 +1,35 @@
+.user_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  font-family: var(--crimson);
+}
+.user_main .search {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+.user_main .search input {
+  padding: 10px;
+  border: solid 1px var(--stroke);
+  outline: none;
+}
+.user_main .table tr {
+  border: solid 1px black;
+}
+.user_main .table th {
+  border: solid 1px var(--main-text);
+  background: var(--main-text);
+  color: var(--main-color);
+  text-transform: capitalize;
+  padding: 0 50px;
+}
+.user_main .table td {
+  text-transform: capitalize;
+}
+.user_main .table .email {
+  text-transform: lowercase;
+}

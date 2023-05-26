@@ -1,0 +1,22 @@
+.services_main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  font-family: var(--crimson);
+}
+.services_main .table tr {
+  border: solid 1px black;
+}
+.services_main .table th {
+  border: solid 1px var(--main-text);
+  background: var(--main-text);
+  color: var(--main-color);
+  text-transform: capitalize;
+  padding: 0 50px;
+}
+.services_main .table td {
+  text-align: center;
+  text-transform: capitalize;
+}

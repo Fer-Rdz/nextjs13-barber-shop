@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import "../css/login.css";
+import { AiFillCloseCircle } from "react-icons/ai";
 
 const Login = ({ isOpen, onClose, children }) => {
   const getToken = Cookies.get("auth-token");
@@ -46,7 +47,7 @@ const Login = ({ isOpen, onClose, children }) => {
                 <h1>iniciar sesion</h1>
                 <p>cambia tu estilo con nosotros</p>
               </div>
-              <div>
+              <div className="email_section">
                 <label>correo</label>
                 <input
                   type="email"
@@ -56,7 +57,7 @@ const Login = ({ isOpen, onClose, children }) => {
                   onChange={(event) => setEmail(event.target.value)}
                 />
               </div>
-              <div>
+              <div className="password_section">
                 <label>contraseña</label>
                 <input
                   type="password"
@@ -67,12 +68,16 @@ const Login = ({ isOpen, onClose, children }) => {
                   onChange={(event) => setPassword(event.target.value)}
                 />
               </div>
-              <button onClick={handleSubmit}>ingresar</button>
+              <button className="join" onClick={handleSubmit}>
+                ingresar
+              </button>
               <h6>
                 no estas registrado?<Link href="/register">registrate</Link>
               </h6>
             </div>
-            <button onClick={onClose}>cerrar</button>
+            <button className="close" onClick={onClose}>
+              <AiFillCloseCircle />
+            </button>
           </form>
         </section>
         <div className="image"></div>

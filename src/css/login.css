@@ -5,8 +5,8 @@
   top: 0;
   left: 0;
   display: flex;
-  font-family: var(--inter);
-  background: rgba(0, 0, 0, 0.795);
+  font-family: var(--crimson);
+  background: rgba(255, 255, 255, 0);
   justify-content: center;
   align-items: center;
   z-index: 0;
@@ -24,9 +24,9 @@
   width: 200px;
   padding: 10px;
   border-radius: 20px 0 0 20px;
-  background: black;
-  border: solid 1px white;
-  color: white;
+  background: white;
+  border: solid 1px var(--stroke);
+  color: black;
 }
 .login-container .container .image .bg {
   background: var(--main-text);
@@ -35,13 +35,15 @@
   border-radius: 10px;
 }
 .login-container .form-container {
+  position: relative;
   display: flex;
   flex-direction: column;
-  background: black;
-  border: solid 1px white;
-  color: white;
-  padding: 100px 20px;
-  border-radius: 10px;
+  background: white;
+  border: solid 1px var(--stroke);
+  color: black;
+  padding: 50px;
+  border-radius: 5px;
+  gap: 10px;
 }
 .login-container .form-container h1 {
   text-transform: capitalize;
@@ -49,12 +51,14 @@
   font-weight: 800;
   letter-spacing: -0.07rem;
   color: var(--main-text);
+  text-align: center;
 }
 .login-container .form-container p {
   text-transform: capitalize;
   margin-bottom: 50px;
   font-weight: 500;
   color: var(--main-text);
+  text-align: center;
 }
 .login-container .form-container form {
   width: 300px;
@@ -62,6 +66,20 @@
   width: inherit;
   gap: 20px;
   flex-direction: column;
+}
+.login-container .form-container .join {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 30px;
+  background: black;
+  color: white;
+  padding: 10px 20px;
+  font-family: var(--crimson);
+  text-transform: capitalize;
+  font-size: 1rem;
+  border: solid 1px black;
+  outline: none;
 }
 .login-container .form-container form .name {
   display: flex;
@@ -82,7 +100,40 @@
   color: var(--light-text);
   text-transform: capitalize;
 }
-
+.login-container .container .form-container .email_section,
+.password_section {
+  display: flex;
+  flex-direction: column;
+}
+.login-container .container .form-container .email_section input,
+.password_section input {
+  padding: 10px;
+  font-family: var(--crimson);
+  font-size: 1rem;
+  border: solid 1px var(--stroke);
+  background: white;
+  outline: none;
+}
+.login-container .container .form-container .email_section label,
+.password_section label {
+  text-transform: capitalize;
+}
+.login-container .container .form-container h6 {
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-weight: normal;
+  text-align: center;
+  margin-top: 30px;
+}
+.login-container .container .form-container .close {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  top: 10px;
+  left: 10px;
+  position: absolute;
+}
 @keyframes blur-out {
   from {
     -webkit-backdrop-filter: blur(0px);

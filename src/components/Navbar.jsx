@@ -1,10 +1,11 @@
 "use client";
+import "@/css/globals.css";
 import React, { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { BiUserCircle } from "react-icons/bi";
 import { FiLogOut } from "react-icons/fi";
 import { useRouter } from "next/navigation";
-import "@/css/navbar.css";
+import styles from "@/css/navbar.module.css";
 import logo from "../../public/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,12 +21,12 @@ const Navbar = () => {
   const getToken = Cookies.get("auth-token");
   const router = useRouter();
 
-  const handleClick = () => {
+  const handleLogin = () => {
     if (getToken) {
-      navigate("/");
+      router.push("/bookings");
       window.location.reload();
     } else {
-      navigate("/login");
+      router.push("/login");
       window.location.reload();
     }
   };
@@ -60,21 +61,23 @@ const Navbar = () => {
     setIsLoginOpen(false);
   };
   const handleLogout = () => {
-    Cookies.remove("auth-token");
     router.push("/");
-    window.location.reload();
+    Cookies.remove("auth-token");
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
   };
   const goToProfile = () => {
     router.push("/profile");
   };
   return (
     <>
-      <section className="nav-container">
+      <section className={styles.nav_container}>
         <nav>
           <ul>
             <li>
-              <Image className="logo" src={logo} alt="logo" />
-              <Link className="nav-logo" href="/">
+              <Image className={styles.logo} src={logo} alt="logo" />
+              <Link className={styles.nav_logo} href="/">
                 barbel
               </Link>
             </li>
@@ -86,69 +89,71 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href="/">
+              <Link href="/contact">
                 <span>contactanos</span>
               </Link>
             </li>
-            <li>
-              <Link href="/testimonios">
-                <span>escribenos una reseña</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/bookings">
-                <span>agendar cita</span>
-              </Link>
-            </li>
             {login ? (
-              <li
-                className="nav-user"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                <Link className="user-name-nav" href="/">
-                  <span>{login.name}</span>
-                </Link>
-                {isMenuOpen && (
-                  <div
-                    className="user-drop"
-                    onMouseEnter={handleMouseEnter}
-                    /* onMouseLeave={handleMouseLeave}*/
-                  >
-                    <div>
-                      <span>
-                        <BiUserCircle />
-                      </span>
-                      <section onClick={goToProfile}>
-                        <h2>mi perfil</h2>
-                        <p>
-                          entra a tu perfil para ver tus citas pendientes
-                        </p>{" "}
-                      </section>
+              <ul>
+                <li>
+                  <Link href="/testimonios">
+                    <span>escribenos una reseña</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/bookings">
+                    <span>agendar cita</span>
+                  </Link>
+                </li>
+                <li
+                  className={styles.nav_user}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Link className={styles.user_name_nav} href="#">
+                    <span>{login.name}</span>
+                  </Link>
+                  {isMenuOpen && (
+                    <div
+                      className={styles.user_drop}
+                      onMouseEnter={handleMouseEnter}
+                      /* onMouseLeave={handleMouseLeave}*/
+                    >
+                      <div>
+                        <span>
+                          <BiUserCircle />
+                        </span>
+                        <section onClick={goToProfile}>
+                          <h2>mi perfil</h2>
+                          <p>
+                            entra a tu perfil para ver tus citas pendientes
+                          </p>{" "}
+                        </section>
+                      </div>
+                      <div className={styles.logout}>
+                        <span>
+                          <FiLogOut />
+                        </span>
+                        <section onClick={handleLogout}>
+                          <h2>cerrar sesion</h2>
+                          <p>cierra la sesion para salir de la pagina</p>{" "}
+                        </section>
+                      </div>
                     </div>
-                    <div className="logout">
-                      <span>
-                        <FiLogOut />
-                      </span>
-                      <section onClick={handleLogout}>
-                        <h2>cerrar sesion</h2>
-                        <p>cierra la sesion para salir de la pagina</p>{" "}
-                      </section>
-                    </div>
-                  </div>
-                )}
-              </li>
+                  )}
+                </li>
+              </ul>
             ) : (
-              <div className="login-buttons">
+              <div className={styles.login_buttons}>
                 <li>
                   <Link href="/" onClick={openLogin}>
-                    <span className="nav-login">iniciar sesion</span>
+                    <span className={styles.nav_login}>iniciar sesion</span>
                   </Link>
                 </li>
 
                 <li>
                   <Link href="/" onClick={openRegister}>
-                    <span className="nav-register">registrate</span>
+                    <span className={styles.nav_register}>registrate</span>
                   </Link>
                 </li>
               </div>

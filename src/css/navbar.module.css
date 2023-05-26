@@ -1,0 +1,156 @@
+.nav_container {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  font-family: var(--crimson);
+  background: white;
+  border-bottom: dashed 1px var(--stroke);
+}
+.nav_container .user_drop {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  top: 70px;
+  margin-left: -100px;
+  padding: 10px;
+  background: var(--main-color);
+  border: dashed 1px var(--stroke);
+  border-radius: 5px;
+  color: var(--stroke);
+  animation: hide 500ms;
+
+  transition: 300ms;
+}
+@keyframes hide {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 100;
+    transform: translateY(0);
+  }
+}
+.nav_container .user_drop .logout h2 {
+  color: red;
+}
+.nav_container .user_drop div {
+  display: flex;
+  align-items: center;
+  transition: 300ms;
+}
+.nav_container .user_drop div:hover {
+  color: black;
+}
+.nav_container .user_drop div section {
+  padding: 10px;
+}
+.nav_container .user_drop div:hover {
+  cursor: pointer;
+}
+.nav_container .user_drop div section h2 {
+  letter-spacing: -0.01rem;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--stroke);
+}
+.nav_container .user_drop div span {
+  color: black;
+}
+.nav_container .user_drop div:hover ~ .user_drop div section h2 {
+  color: var(--main-text);
+}
+.nav_container .user_drop div section p {
+  color: var(--light-text);
+  font-size: 0.8rem;
+}
+.nav_container .user_drop ul {
+  display: flex;
+  flex-direction: column;
+}
+.nav_container nav {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1100px;
+  min-height: 90px;
+  padding: 0 10px;
+  margin: auto;
+}
+.nav_container nav ul {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.nav_container nav ul .login_buttons {
+  display: flex;
+  gap: 20px;
+}
+.nav_container nav ul li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  height: 90px;
+}
+.nav_container nav ul li .user_name_nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+.nav_container nav ul li div span {
+  display: flex;
+  align-items: center;
+}
+.nav_container nav ul li .logo {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  filter: var(--logo-color);
+}
+.nav_container nav ul li .nav_logo {
+  font-family: var(--logo);
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--main-text);
+}
+.nav_container nav ul li .nav_logo:hover {
+  color: black;
+}
+.nav_container nav ul input {
+  padding: 10px;
+}
+.nav_container nav ul li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--unhover);
+  text-transform: capitalize;
+  font-size: 1rem;
+  transition: 300ms;
+}
+.nav_container nav ul li a:hover {
+  color: black;
+}
+.nav_container ul li a .nav_login {
+  background: transparent;
+  color: black;
+  padding: 10px;
+  border-radius: 50px;
+  transition: 400ms;
+  border: solid 1px black;
+}
+.nav_container nav ul li a .nav_login:hover {
+  background: transparent;
+  color: black;
+}
+.nav_container ul li a .nav_register {
+  background: black;
+  color: white;
+  padding: 10px;
+  border-radius: 50px;
+  transition: 400ms;
+  border: solid 1px black;
+}

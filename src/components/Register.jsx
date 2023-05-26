@@ -4,6 +4,7 @@ import Link from "next/link";
 import axios from "axios";
 import { useState } from "react";
 import "../css/login.css";
+import { AiFillCloseCircle } from "react-icons/ai";
 
 const Register = ({ isOpen, onClose, children }) => {
   const [name, setName] = useState();
@@ -79,6 +80,9 @@ const Register = ({ isOpen, onClose, children }) => {
             <h6>
               ya tienes una cuenta?<Link href="/">inicia sesion</Link>
             </h6>
+            <button className="close" onClick={onClose}>
+              <AiFillCloseCircle />
+            </button>
           </form>
         </section>
         <div className="image"></div>

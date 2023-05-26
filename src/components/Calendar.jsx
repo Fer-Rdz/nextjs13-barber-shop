@@ -32,14 +32,12 @@ const Calendar = () => {
     "18:30",
     "19:00",
     "19:30",
-    "20:00",
   ]);
   const [horasOcupadas, setHorasOcupadas] = useState([]);
   useEffect(() => {
     const fetchHorasOcupadas = async () => {
       const horas = await getHorasOcupadas();
       setHorasOcupadas(horas);
-      console.log(horas);
     };
     fetchHorasOcupadas();
   }, []);
@@ -180,7 +178,6 @@ const Calendar = () => {
     const fetchHorasOcupadas = async () => {
       const horas = await getHorasOcupadas();
       setHorasOcupadas(horas);
-      console.log(horas);
     };
     fetchHorasOcupadas();
   }, []);
@@ -310,7 +307,7 @@ const Calendar = () => {
           <div className="price">
             <div className="book-date">
               <h1>fecha de la cita</h1>
-              <h1>{selectedDate}</h1>
+              <h1 className="date-select">{selectedDate}</h1>
             </div>
             <div className="book-time">
               <h1>hora de la cita</h1>
@@ -318,13 +315,15 @@ const Calendar = () => {
             </div>
             <div className="book-services">
               <h1>servicios de la cita</h1>
-              {selectedServices
-                .map((serviceId) => getServiceName(serviceId))
-                .join(", ")}
+              <h2 className="services-select">
+                {selectedServices
+                  .map((serviceId) => getServiceName(serviceId))
+                  .join(", ")}
+              </h2>
             </div>
             <div className="services-price">
               <h1>precio total</h1>
-              <h2>${totalPrice}</h2>
+              <h2 className="booking-price">${totalPrice}</h2>
             </div>
             <button
               onClick={submitBooking}

@@ -1,6 +1,6 @@
 "use client";
-import Navbar from "@/components/Navbar";
-import "@/css/home.css";
+import styles from "@/css/home.module.css";
+import "@/css/globals.css";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useState, useEffect, useRef } from "react";
 import logo from "../../public/logo.svg";
@@ -37,22 +37,25 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    phraseRef.current.classList.remove("fade");
+    phraseRef.current.classList.remove(styles.fade);
     void phraseRef.current.offsetWidth;
-    phraseRef.current.classList.add("fade");
+    phraseRef.current.classList.add(styles.fade);
   }, [currentPhraseIndex]);
 
   return (
     <>
       <section>
-        <article className="hero">
-          <h1>barbel</h1>
-          <div className="hero-text">
-            <p ref={phraseRef} className="phrases">
+        <article className={styles.hero}>
+          <div className={styles.hero_text}>
+            <div className={styles.hero_logo}>
+              <h1>barbel</h1>
+              <Image src={logo} alt={"logo"} />
+            </div>
+            <p ref={phraseRef} className={styles.phrases}>
               {heroPhrases[currentPhraseIndex]}
             </p>
           </div>
-          <div className="search">
+          <div className={styles.search}>
             <span>
               <AiOutlineSearch />
               buscar servicios ...

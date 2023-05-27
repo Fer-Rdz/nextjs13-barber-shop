@@ -17,6 +17,9 @@
   border: solid 1px var(--stroke);
   outline: none;
 }
+.user_main .search input:focus {
+  border: solid 1px var(--main-text);
+}
 .user_main .table tr {
   border: solid 1px black;
 }

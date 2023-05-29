@@ -15,7 +15,7 @@ const Register = ({ isOpen, onClose, children }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:4000/clients", {
+      await axios.post("http://localhost:3512/clients", {
         name: name,
         lastname: lastname,
         email: email,

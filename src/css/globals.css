@@ -1,16 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Fira+Code:wght@300;400;500;600;700&display=swap");
 :root {
   --crimson: "Crimson Text";
+  --logo: "old english text mt";
   --mono: "Fira Code";
   --main-color: #ffffff;
+  --white: #ffffff;
   --stroke: #bbbbbb;
-  --light-text: #000000;
   --main-text: #000000;
   --unhover: #646464;
   --logo-color: invert(0%) sepia(100%) saturate(7434%) hue-rotate(211deg)
     brightness(115%) contrast(115%);
-
   --shadow: #0000004b;
   --alert: #f8888828;
   --alert-text: #ff0000a1;
+  --kbd: radial-gradient(100% 100% at 49.86% 0%, #b1b1b1 0%, #676767 100%);
 }
+

@@ -2,8 +2,10 @@
 :root {
   --crimson: "Crimson Text";
   --mono: "Fira Code";
-  --main-color: #ffffff;
+  --logo: "old english text mt";
+  --main-color: #e6e6e6;
   --stroke: #bbbbbb;
+  --white:#ffffff;
   --main-text: #000000;
   --unhover: #646464;
   --logo-color: invert(0%) sepia(100%) saturate(7434%) hue-rotate(211deg)
@@ -12,4 +14,6 @@
   --shadow: #0000004b;
   --alert: #f8888828;
   --alert-text: #ff0000a1;
+  --price-gradient: radial-gradient(100% 100% at 49.86% 0%, #5BE12B 0%, #286513 100%);
+  --user-gradient:  radial-gradient(100% 100% at 49.86% 0%, #2B74E1 0%, #132565 100%);
 }

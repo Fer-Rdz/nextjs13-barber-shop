@@ -3,7 +3,7 @@
   width: 100%;
   z-index: 1;
   font-family: var(--crimson);
-  background: white;
+  background: var(--main-color);
   border-bottom: dashed 1px var(--stroke);
 }
 .nav_container .user_drop {
@@ -39,9 +39,10 @@
   display: flex;
   align-items: center;
   transition: 300ms;
+
 }
 .nav_container .user_drop div:hover {
-  color: black;
+  color: var(--main-text);
 }
 .nav_container .user_drop div section {
   padding: 10px;
@@ -54,10 +55,10 @@
   text-transform: capitalize;
   font-weight: 500;
   font-size: 1rem;
-  color: var(--stroke);
+  color: var(--main-text);
 }
 .nav_container .user_drop div span {
-  color: black;
+  color: var(--main-text);
 }
 .nav_container .user_drop div:hover ~ .user_drop div section h2 {
   color: var(--main-text);
@@ -74,14 +75,17 @@
   display: flex;
   justify-content: space-between;
   max-width: 1100px;
-  min-height: 90px;
   padding: 0 10px;
   margin: auto;
+  height: 90px;
 }
 .nav_container nav ul {
   display: flex;
   align-items: center;
   gap: 25px;
+}
+.nav_container .logo_nav{
+  display: flex;
 }
 .nav_container nav ul .login_buttons {
   display: flex;
@@ -90,8 +94,19 @@
 .nav_container nav ul li {
   list-style: none;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  height: 90px;
+
+}
+.nav_container nav ul li kbd{
+  border: solid 1px var(--stroke);
+  background: var(--kbd);
+  box-shadow: inset 0 1px 0 0 var(--white);
+  padding: 3px;
+  border-radius: 3px;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--white);
 }
 .nav_container nav ul li .user_name_nav {
   position: relative;
@@ -112,12 +127,11 @@
 .nav_container nav ul li .nav_logo {
   font-family: var(--logo);
   text-transform: capitalize;
-  font-weight: 600;
   font-size: 1.3rem;
   color: var(--main-text);
 }
 .nav_container nav ul li .nav_logo:hover {
-  color: black;
+  color: var(--main-text);
 }
 .nav_container nav ul input {
   padding: 10px;
@@ -126,31 +140,32 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: var(--unhover);
+  color: var(--stroke);
   text-transform: capitalize;
   font-size: 1rem;
   transition: 300ms;
+  margin-bottom: 5px;
 }
 .nav_container nav ul li a:hover {
-  color: black;
+  color: var(--main-text);
 }
 .nav_container ul li a .nav_login {
   background: transparent;
-  color: black;
+  color: var(--main-text);
   padding: 10px;
   border-radius: 50px;
   transition: 400ms;
-  border: solid 1px black;
+  border: solid 1px var(--main-text);
 }
 .nav_container nav ul li a .nav_login:hover {
   background: transparent;
-  color: black;
+  color: var(--main-text);
 }
 .nav_container ul li a .nav_register {
-  background: black;
-  color: white;
+  background: var(--main-text);
+  color: var(--main-color);
   padding: 10px;
   border-radius: 50px;
   transition: 400ms;
-  border: solid 1px black;
+  border: solid 1px var(--main-text);
 }

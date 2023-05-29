@@ -13,7 +13,7 @@ import datesRoute from "./routes/dates.routes.js";
 
 dotenv.config();
 
-export const port = 4000;
+export const port = 3512;
 export const app = express();
 
 app.use(express.json());

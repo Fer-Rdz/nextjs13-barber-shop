@@ -70,28 +70,62 @@ const Navbar = () => {
   const goToProfile = () => {
     router.push("/profile");
   };
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      // Verificar si se presionó Control (event.ctrlKey) y la tecla "C" (event.key === "c")
+      if (event.ctrlKey && event.key === "v") {
+        // Redirigir a la URL deseada
+        router.push("/bookings");
+      }
+      if (event.ctrlKey && event.key === "c") {
+        // Redirigir a la URL deseada
+        router.push("/testimonios");
+      }
+      if (event.ctrlKey && event.key === "b") {
+        // Redirigir a la URL deseada
+        router.push("/profile");
+      }
+      if (event.ctrlKey && event.key === "z") {
+        // Redirigir a la URL deseada
+        router.push("/");
+      }
+      if (event.ctrlKey && event.key === "x") {
+        // Redirigir a la URL deseada
+        router.push("/contact");
+      }
+    };
+    // Agregar el event listener al componente
+    document.addEventListener("keydown", handleKeyDown);
+    // Limpiar el event listener al desmontar el componente
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [router]);
   return (
     <>
       <section className={styles.nav_container}>
         <nav>
           <ul>
             <li>
-              <Image className={styles.logo} src={logo} alt="logo" />
-              <Link className={styles.nav_logo} href="/">
-                barbel
-              </Link>
+              <div className={styles.logo_nav}>
+                <Image className={styles.logo} src={logo} alt="logo" />
+                <Link className={styles.nav_logo} href="/">
+                  barbel
+                </Link>
+              </div>
+              <div>
+                <kbd>ctrl</kbd>+<kbd>z</kbd>
+              </div>
             </li>
           </ul>
           <ul>
             <li>
-              <Link href="/">
-                <span>servicios</span>
-              </Link>
-            </li>
-            <li>
               <Link href="/contact">
                 <span>contactanos</span>
               </Link>
+              <div>
+                <kbd>ctrl</kbd>+<kbd>x</kbd>
+              </div>
             </li>
             {login ? (
               <ul>
@@ -99,11 +133,17 @@ const Navbar = () => {
                   <Link href="/testimonios">
                     <span>escribenos una reseña</span>
                   </Link>
+                  <div>
+                    <kbd>ctrl</kbd>+<kbd>c</kbd>
+                  </div>
                 </li>
                 <li>
                   <Link href="/bookings">
                     <span>agendar cita</span>
                   </Link>
+                  <div>
+                    <kbd>ctrl</kbd>+<kbd>v</kbd>
+                  </div>
                 </li>
                 <li
                   className={styles.nav_user}
@@ -113,6 +153,9 @@ const Navbar = () => {
                   <Link className={styles.user_name_nav} href="#">
                     <span>{login.name}</span>
                   </Link>
+                  <div onMouseEnter={handleMouseEnter}>
+                    <kbd>ctrl</kbd>+<kbd>b</kbd>
+                  </div>
                   {isMenuOpen && (
                     <div
                       className={styles.user_drop}

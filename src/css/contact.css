@@ -16,7 +16,7 @@
 }
 .contact-hero .contact-info {
   position: absolute;
-  background: white;
+  background: var(--main-color);
   border-radius: 5px;
   display: flex;
   bottom: -60px;
@@ -41,4 +41,7 @@
 }
 .contact-hero .contact-info .email .email-address {
   text-transform: lowercase;
+}
+.map-container{
+  margin-top: 100px;
 }

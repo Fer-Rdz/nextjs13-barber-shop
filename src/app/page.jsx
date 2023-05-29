@@ -2,9 +2,10 @@
 import styles from "@/css/home.module.css";
 import "@/css/globals.css";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import logo from "../../public/logo.svg";
 import Image from "next/image";
+import axios from "axios";
 const Home = () => {
   const heroPhrases = [
     "Ven a descubrir nuestra atención al detalle y cambia tu estilo con nosotros",
@@ -42,6 +43,18 @@ const Home = () => {
     phraseRef.current.classList.add(styles.fade);
   }, [currentPhraseIndex]);
 
+  const [services, setServices] = useState();
+  useEffect(() => {
+    axios
+      .get("http://localhost:3512/services")
+      .then((response) => setServices(response.data));
+  }, []);
+  const [searchTerm, setSearchTerm] = useState("");
+  const filteredServices = services?.filter((service) => {
+    const serviceName = service.name.toLowerCase();
+    const searchLower = searchTerm.toLowerCase();
+    return serviceName.includes(searchLower);
+  });
   return (
     <>
       <section>
@@ -58,11 +71,27 @@ const Home = () => {
           <div className={styles.search}>
             <span>
               <AiOutlineSearch />
-              buscar servicios ...
+              <input
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+                type="search"
+                name=""
+                id=""
+                placeholder="Buscar Servicio ..."
+              />
             </span>
           </div>
         </article>
-        <article />
+        <article className={styles.services}>
+          <div>
+            {filteredServices?.map((services) => (
+              <tr key={services?.id}>
+                <td>{services?.name}</td>
+                <td className={styles.price}>${services?.price}</td>
+              </tr>
+            ))}
+          </div>
+        </article>
       </section>
     </>
   );

@@ -18,7 +18,7 @@
 .profile-container .user-info {
   display: flex;
   flex-direction: column;
-  border: solid 1px black;
+  border: solid 1px var(--main-text);
   padding: 20px;
   border-radius: 5px;
 }
@@ -54,16 +54,16 @@
   overflow: auto;
 }
 .profile-container .bookings-info {
-  background: white;
+  background: var(--main-color);
   border: dashed 1px var(--stroke);
-  color: black;
+  color: var(--main-text);
   gap: 50px;
   display: flex;
   border-radius: 10px;
   padding: 20px;
 }
 .profile-container .bookings-services {
-  border: solid 1px black;
+  border: solid 1px var(--main-text);
   padding: 10px;
   border-radius: 5px;
   text-align: end;
@@ -80,5 +80,5 @@
   color: red;
 }
 .no-bookings {
-  color: black;
+  color: var(--main-text);
 }

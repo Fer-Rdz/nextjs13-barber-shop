@@ -136,7 +136,7 @@ const Calendar = () => {
   const submitBooking = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:4000/dates", {
+      await axios.post("http://localhost:3512/dates", {
         date: selectedDate,
         bookingTime: getInitTime,
         isExpired: false,
@@ -151,7 +151,7 @@ const Calendar = () => {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:4000/services/")
+      .get("http://localhost:3512/services/")
       .then((response) => setServices(response.data));
   }, []);
 
@@ -161,7 +161,7 @@ const Calendar = () => {
   };
   const getHorasOcupadas = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/dates/");
+      const response = await axios.get("http://localhost:3512/dates/");
       const horasOcupadas = response.data
         .filter((date) => date.isExpired === false)
         .map((date) => ({

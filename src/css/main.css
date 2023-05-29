@@ -1,3 +1,4 @@
+@import "../css/globals.css";
 ::selection {
   background: #00ffc8;
   color: black;
@@ -7,5 +8,11 @@
   padding: 0;
 }
 body {
-  background: #ffffff;
+  background: var(--main-color);
+}
+body.dark-mode{
+  --main-color: #000000;
+  --stroke: #bbbbbb;
+  --main-text: #ffffff;
+  --logo-color: invert(100%) sepia(4%) saturate(1313%) hue-rotate(187deg) brightness(116%) contrast(100%);
 }

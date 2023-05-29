@@ -7,10 +7,74 @@
   height: 100vh;
   font-family: var(--crimson);
 }
-.user_main .search {
-  padding: 20px;
+.user_main .title_container{
+  width: 100%;
+  padding: 10px 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 50px;
+  font-family: var(--crimson);
+}
+.user_main .title_container::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 130px;
+  border: dashed 1px var(--stroke);
+}
+.user_main h1{
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+.search{
   display: flex;
   align-items: center;
+}
+.search h3{
+  padding: 6px;
+  border-radius: 5px 0 0 5px;
+  background: var(--main-text);
+  color: var(--white);
+  border: solid 1px var(--main-text);
+}
+.search_bar{
+  padding: 10px;
+  border: solid 1px var(--stroke);
+  outline: none;
+  border-radius: 0 5px 5px 0;
+  font-family: var(--crimson);
+}
+.search_bar:focus{
+  border: solid 1px var(--main-text);
+}
+.table{
+  border-radius: 5px;
+  margin-top: -20px;
+}
+.table_container{
+  position: relative;
+  overflow: auto;
+  height: 500px;
+  padding: 0 20px;
+}
+.table_th th{
+  border: solid 1px var(--main-text);
+  background: var(--main-text);
+  color: var(--main-color);
+  box-shadow: inset 0 1px 0 0 var(--white);
+  text-transform: capitalize;
+  padding: 0 50px;
+}
+.user_main .table .user_row th{
+  background: transparent;
+  border: none;
+  outline: none;
+  color: transparent;
+  box-shadow: 0 0 0 0 transparent;
 }
 .user_main .search input {
   padding: 10px;
@@ -23,15 +87,20 @@
 .user_main .table tr {
   border: solid 1px black;
 }
+.user_main .table .delete{
+  color: red;
+}
 .user_main .table th {
   border: solid 1px var(--main-text);
   background: var(--main-text);
   color: var(--main-color);
+  box-shadow: inset 0 1px 0 0 var(--white);
   text-transform: capitalize;
   padding: 0 50px;
 }
 .user_main .table td {
   text-transform: capitalize;
+  text-align: center;
 }
 .user_main .table .email {
   text-transform: lowercase;

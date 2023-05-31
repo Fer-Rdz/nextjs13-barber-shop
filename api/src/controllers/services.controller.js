@@ -15,6 +15,12 @@ export const createService = async (req, res) => {
   res.json(newService);
 };
 
+export const createServices = async (req, res) => {
+  const  services  = req.body;
+  const newService = await Services.bulkCreate(services);
+  res.json(newService);
+};
+
 export const updateService = async (req, res) => {
   const { id } = req.params;
   const { price, name } = req.body;

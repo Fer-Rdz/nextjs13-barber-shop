@@ -134,6 +134,32 @@
   left: 10px;
   position: absolute;
 }
+.form-container .user-name{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.form-container .name, .lastname{
+  display: flex;
+  flex-direction: column;
+}
+.form-container .email, .password{
+  display: flex;
+  flex-direction: column;
+}
+.form-container .email input, .password input, .name input, .lastname input{
+  padding: 10px;
+  border: solid 1px var(--stroke);
+  outline: none;
+  color: var(--main-text);
+  font-family: var(--crimson);
+}
+.container .error-message {
+  color: red;
+  font-size: 14px;
+}
+
+
 @keyframes blur-out {
   from {
     -webkit-backdrop-filter: blur(0px);

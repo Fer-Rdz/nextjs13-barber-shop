@@ -54,7 +54,7 @@
   justify-content: center;
   padding: 10px;
   background: var(--main-text);
-  color: var(--main-colo);
+  color: var(--main-color);
   border: solid 1px var(--main-text);
   font-family: var(--crimson);
   text-transform: capitalize;
@@ -131,7 +131,7 @@
   padding: 20px;
   background: var(--main-color);
   border: dashed 1px var(--stroke);
-  color: var(--main-text);
+  color: var(--main-white);
   font-family: var(--crimson);
   text-transform: capitalize;
   border-radius: 5px;

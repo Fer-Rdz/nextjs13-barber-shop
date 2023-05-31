@@ -40,22 +40,13 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
-        <h1 className={styles.logo}>
-          barbel <span>admin</span>
-        </h1>
         <section>
-          <article className={styles.users}>
-            <h1>usuarios</h1>
-          </article>
-          <article className={styles.bookings}>
-            <h1>citas</h1>
-          </article>
           <article
             className={styles.price}
             onMouseLeave={handleUserToolLeave}
             onMouseEnter={handleUserToolEnter}
           >
-            <h1>total</h1>
+            <h1>ganancias</h1>
             <h2>${addTotalPrices()}</h2>
             {totalPrice && (
               <div className={styles.price_drop}>

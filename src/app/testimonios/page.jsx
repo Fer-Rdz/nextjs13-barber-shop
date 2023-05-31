@@ -3,15 +3,19 @@ import styles from "@/css/testimonios.module.css";
 import "@/css/globals.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 const Testimonios = () => {
   const [text, setText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
   const maxLength = 250;
   const [rating, setRating] = useState(0);
+  const router = useRouter();
 
   const handleStarClick = (selectedRating) => {
     setRating(selectedRating);
+    console.log(selectedRating);
   };
   useEffect(() => {
     setCharacterCount(text.length);
@@ -38,14 +42,26 @@ const Testimonios = () => {
     }
     return stars;
   };
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    const getID = Cookies.get("auth-token");
+    if (getID) {
+      const userData = window.atob(getID.split(".")[1]);
+      const parseData = JSON.parse(userData);
+      setUserData(parseData);
+    }
+  }, []);
+
   const saveReview = async (message, stars) => {
     try {
       const response = await axios.post("http://localhost:3512/reviews", {
-        message,
-        stars,
+        message: text,
+        stars: rating,
+        client_id: userData.id,
       });
 
       console.log("Reseña guardada:", response.data);
+      router.push("/");
       // Realiza las acciones necesarias después de guardar la reseña
     } catch (error) {
       console.error("Error al guardar la reseña:", error);
@@ -72,7 +88,7 @@ const Testimonios = () => {
           ></textarea>
           <h2>250/{characterCount}</h2>
         </div>
-        <button>enviar</button>
+        <button onClick={saveReview}>enviar</button>
       </section>
     </>
   );

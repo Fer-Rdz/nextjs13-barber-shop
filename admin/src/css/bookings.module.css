@@ -6,6 +6,8 @@
   width: 100%;
   height: 100vh;
   font-family: var(--crimson);
+  height: calc(100vh - 150px);
+  margin-top: 150px;
 }
 .bookings_main .filter_container{
   width: 100%;
@@ -24,7 +26,7 @@
   left: 0;
   right: 0;
   top: 190px;
-  border: dashed 1px var(--stroke);
+
 }
 .bookings_main .filter_container .search{
   display: flex;

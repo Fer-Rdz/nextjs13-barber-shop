@@ -92,6 +92,7 @@ const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const handleDayClick = (day) => {
     const date = new Date(year, month, day);
+    date.setHours(0, 0, 0, 0); // Establece las horas, minutos, segundos y milisegundos a cero
     const selectedDate = date.toISOString().substring(0, 10);
     setSelectedDate(selectedDate);
     console.log(selectedDate);
@@ -120,6 +121,10 @@ const Calendar = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [selectedServices, setSelectedServices] = useState([]);
   const handleServiceClick = (serviceId) => {
+    if (clearServices) {
+      setClearServices(false);
+      setTotalPrice(0);
+    }
     if (selectedServices.includes(serviceId)) {
       // El servicio ya está seleccionado, así que lo eliminamos
       setSelectedServices(selectedServices.filter((id) => id !== serviceId));
@@ -204,6 +209,12 @@ const Calendar = () => {
       });
     }
   });
+  const [clearServices, setClearServices] = useState(false);
+  const handleClearServices = () => {
+    setSelectedServices([]);
+    setClearServices(true);
+  };
+
   return (
     <>
       <section className="main-booking-container">
@@ -325,6 +336,7 @@ const Calendar = () => {
               <h1>precio total</h1>
               <h2 className="booking-price">${totalPrice}</h2>
             </div>
+            <button onClick={handleClearServices}>limpiar servicios</button>
             <button
               onClick={submitBooking}
               disabled={

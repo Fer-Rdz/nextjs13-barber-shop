@@ -4,13 +4,15 @@ import {
   createService,
   updateService,
   deleteService,
+  createServices
 } from "../controllers/services.controller.js";
 
 const router = Router();
 
 router
   .get("/services", getServices)
-  .post("/services", createService)
+  .post("/service", createService)
+  .post("/services/", createServices)
   .delete("/services/:id", deleteService)
   .put("/services/:id", updateService);
 

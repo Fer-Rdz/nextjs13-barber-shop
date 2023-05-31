@@ -4,7 +4,10 @@
   display: flex;
   padding-left: 20px;
   height: 100vh;
+  top: 0;
   font-family: var(--crimson);
+  background: white;
+  z-index: 1;
 }
 .nav_container nav {
   position: absolute;

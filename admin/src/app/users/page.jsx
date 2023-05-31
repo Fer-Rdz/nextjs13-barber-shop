@@ -60,19 +60,6 @@ const Users = () => {
             />
           </div>
         </div>
-        <table className={styles.table_th}>
-          <tbody>
-            <tr>
-              <th>nombre</th>
-              <th>apellido</th>
-              <th>correo</th>
-              <th>antiguedad</th>
-
-              <th>n° de citas</th>
-              <th>eliminar</th>
-            </tr>
-          </tbody>
-        </table>
         <section className={styles.table_container}>
           <table className={styles.table}>
             <tbody>
@@ -81,9 +68,7 @@ const Users = () => {
                 <th>apellido</th>
                 <th>correo</th>
                 <th>antiguedad</th>
-
                 <th>n° de citas</th>
-                <th>eliminar</th>
               </tr>
               {users
                 ?.filter((user) =>
@@ -98,12 +83,12 @@ const Users = () => {
                     <td className={styles.email}>{users.email}</td>
                     <td>{calculateAntiquity(users.createdAt)}</td>
                     <td>citas</td>
-                    <td
+                    {/*<td
                       className={styles.delete}
                       onClick={() => handleDeleteUser(users.id)}
                     >
                       <AiFillDelete />
-                    </td>
+                </td>*/}
                   </tr>
                 ))}
             </tbody>

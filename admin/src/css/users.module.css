@@ -4,8 +4,9 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
   font-family: var(--crimson);
+  height: calc(100vh - 150px);
+  margin-top: 150px;
 }
 .user_main .title_container{
   width: 100%;
@@ -53,7 +54,7 @@
 }
 .table{
   border-radius: 5px;
-  margin-top: -20px;
+
 }
 .table_container{
   position: relative;
@@ -70,10 +71,10 @@
   padding: 0 50px;
 }
 .user_main .table .user_row th{
-  background: transparent;
+  background: black;
   border: none;
   outline: none;
-  color: transparent;
+  color: white;
   box-shadow: 0 0 0 0 transparent;
 }
 .user_main .search input {

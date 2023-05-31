@@ -6,6 +6,8 @@
   width: 100%;
   height: 100vh;
   font-family: var(--crimson);
+  height: calc(100vh - 150px);
+  margin-top: 150px;
 }
 .services_main .services_title{
   width: 100%;

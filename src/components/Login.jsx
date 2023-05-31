@@ -26,8 +26,8 @@ const Login = ({ isOpen, onClose, children }) => {
         alert("autentiado");
         onClose();
       } else {
-        alert("no autenticado");
-        alert("usuario no encontrado");
+        alert("no autenticado", "BARBEL");
+        alert("usuario no encontrado", "BARBEL");
       }
     } catch (error) {
       alert("usuario no encontrado", error);
@@ -71,9 +71,6 @@ const Login = ({ isOpen, onClose, children }) => {
               <button className="join" onClick={handleSubmit}>
                 ingresar
               </button>
-              <h6>
-                no estas registrado?<Link href="/register">registrate</Link>
-              </h6>
             </div>
             <button className="close" onClick={onClose}>
               <AiFillCloseCircle />

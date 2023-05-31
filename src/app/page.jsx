@@ -51,10 +51,42 @@ const Home = () => {
   }, []);
   const [searchTerm, setSearchTerm] = useState("");
   const filteredServices = services?.filter((service) => {
-    const serviceName = service.name.toLowerCase();
+    const serviceName = service.name?.toLowerCase();
     const searchLower = searchTerm.toLowerCase();
-    return serviceName.includes(searchLower);
+    return serviceName?.includes(searchLower);
   });
+  const [testimonios, setTestimonios] = useState();
+  useEffect(() => {
+    axios
+      .get("http://localhost:3512/reviews")
+      .then((response) => setTestimonios(response.data));
+  }, []);
+
+  /* const [filteredTestimonios, setFilteredTestimonios] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:3512/reviews")
+      .then((response) => setTestimonios(response.data));
+  }, []);
+
+  useEffect(() => {
+    if (testimonios && testimonios.length > 0) {
+      // Filtrar testimonios por 5 estrellas
+      const filtered = testimonios?.filter((reviews) => reviews.stars === 5);
+      setFilteredTestimonios(filtered);
+    }
+  }, [testimonios]);
+
+  // Filtrar testimonios por término de búsqueda
+  useEffect(() => {
+    if (testimonios && testimonios.length > 0) {
+      const filtered = testimonios.filter((reviews) =>
+        reviews.client.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredTestimonios(filtered);
+    }
+  }, [searchTerm, testimonios]);*/
+
   return (
     <>
       <section>
@@ -82,13 +114,50 @@ const Home = () => {
             </span>
           </div>
         </article>
+        <h1>servicios</h1>
         <article className={styles.services}>
           <div>
-            {filteredServices?.map((services) => (
-              <tr key={services?.id}>
-                <td>{services?.name}</td>
-                <td className={styles.price}>${services?.price}</td>
-              </tr>
+            <table>
+              <tbody>
+                {filteredServices?.map((services) => (
+                  <tr key={services?.id}>
+                    <ul>
+                      <li>
+                        <td>{services?.name}</td>
+                      </li>
+                    </ul>
+                    <td className={styles.price}>${services?.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article className={styles.testimonios}>
+          <div className={styles.title}>
+            <h1>testimonios</h1>
+          </div>
+          <div className={styles.container}>
+            {testimonios?.map((reviews) => (
+              <div key={reviews.id} className={styles.card}>
+                <h1>
+                  {reviews.client.name}&nbsp;
+                  {reviews.client.lastname}
+                </h1>
+                <span>
+                  {Array.from({ length: reviews.stars }).map((_, index) => (
+                    <span key={index} className="star filled">
+                      ★
+                    </span>
+                  ))}
+                  {Array.from({ length: 5 - reviews.stars }).map((_, index) => (
+                    <span key={index} className="star">
+                      ☆
+                    </span>
+                  ))}
+                </span>
+                <h2>&quot;{reviews.message}&quot;</h2>
+              </div>
             ))}
           </div>
         </article>

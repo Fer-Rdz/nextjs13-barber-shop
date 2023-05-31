@@ -58,13 +58,13 @@
 }
 .profile-container .bookings-info {
   background: var(--main-color);
-
+  border: solid 1px var(--stroke);
   color: var(--main-text);
   gap: 50px;
   display: flex;
-  flex-direction: column;
+
   border-radius: 10px;
-  padding: 0 100px;
+  padding:50px;
 }
 .profile-container .bookings-services {
   border: dashed 1px var(--main-text);

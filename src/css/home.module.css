@@ -98,11 +98,15 @@
 }
 .services{
   display: flex;
+  position: relative;
   flex-direction: column;
   width: 100%;
+  height: 600px;
+  overflow: auto;
 align-items: center;
   gap: 20px;
   margin-top: 50px;
+  font-family: var(--crimson);
 }
 .services div{
   text-transform: capitalize;
@@ -114,4 +118,39 @@ align-items: center;
 .services div .price{
   font-style: italic  ;
   font-weight: bold;
+}
+.testimonios{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--crimson);
+  gap: 20px;
+  margin-top: 50px;
+  border-top: dashed 1px var(--stroke);
+
+}
+.container{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+.testimonios .title{
+  font-size: 3rem;
+  text-transform: capitalize;
+}
+.testimonios .title h1{
+  font-weight: normal ;
+}
+.testimonios .card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px var(--stroke);
+  padding: 20px;
+  border-radius: 5px;
 }

@@ -34,7 +34,7 @@ const Testimonios = () => {
         <span
           key={i}
           className={`${styles.star} ${i <= rating ? "filled" : ""}`}
-          onClick={() => handleStarClick(i)}
+          onMouseEnter={() => handleStarClick(i)}
         >
           {i <= rating ? "★" : "☆"}
         </span>
@@ -52,7 +52,7 @@ const Testimonios = () => {
     }
   }, []);
 
-  const saveReview = async (message, stars) => {
+  /*const saveReview = async (message, stars) => {
     try {
       const response = await axios.post("http://localhost:3512/reviews", {
         message: text,
@@ -65,6 +65,48 @@ const Testimonios = () => {
       // Realiza las acciones necesarias después de guardar la reseña
     } catch (error) {
       console.error("Error al guardar la reseña:", error);
+      // Maneja el error de manera apropiada
+    }
+  };*/
+
+  const saveReview = async (message, stars) => {
+    if (text.trim() === "" || rating === 0) {
+      alert("Por favor, completa todos los campos.");
+      return;
+    }
+    try {
+      const existingReview = await axios.get(
+        `http://localhost:3512/reviews?client_id=${userData.id}`
+      );
+
+      if (existingReview.data.length > 0) {
+        // El usuario ya tiene una reseña existente, actualizar la reseña existente
+        const reviewId = existingReview.data[0].id;
+        const response = await axios.put(
+          `http://localhost:3512/reviews/${reviewId}`,
+          {
+            message: text,
+            stars: rating,
+            client_id: userData.id,
+          }
+        );
+
+        console.log("Reseña actualizada:", response.data);
+      } else {
+        // El usuario no tiene una reseña existente, crear una nueva reseña
+        const response = await axios.post("http://localhost:3512/reviews", {
+          message: text,
+          stars: rating,
+          client_id: userData.id,
+        });
+
+        console.log("Reseña guardada:", response.data);
+      }
+
+      router.push("/");
+      // Realiza las acciones necesarias después de guardar o actualizar la reseña
+    } catch (error) {
+      console.error("Error al guardar o actualizar la reseña:", error);
       // Maneja el error de manera apropiada
     }
   };

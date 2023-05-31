@@ -121,10 +121,6 @@ const Calendar = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [selectedServices, setSelectedServices] = useState([]);
   const handleServiceClick = (serviceId) => {
-    if (clearServices) {
-      setClearServices(false);
-      setTotalPrice(0);
-    }
     if (selectedServices.includes(serviceId)) {
       // El servicio ya está seleccionado, así que lo eliminamos
       setSelectedServices(selectedServices.filter((id) => id !== serviceId));
@@ -209,11 +205,6 @@ const Calendar = () => {
       });
     }
   });
-  const [clearServices, setClearServices] = useState(false);
-  const handleClearServices = () => {
-    setSelectedServices([]);
-    setClearServices(true);
-  };
 
   return (
     <>
@@ -336,7 +327,7 @@ const Calendar = () => {
               <h1>precio total</h1>
               <h2 className="booking-price">${totalPrice}</h2>
             </div>
-            <button onClick={handleClearServices}>limpiar servicios</button>
+
             <button
               onClick={submitBooking}
               disabled={

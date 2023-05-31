@@ -22,7 +22,7 @@ const Users = () => {
 
   const calculateAntiquity = (createdAt) => {
     const currentDate = new Date();
-    const creationDate = new Date(createdAt);
+    const creationDate = new Date(createdAt); /**/
     const timeDifference = currentDate.getTime() - creationDate.getTime();
 
     // Calculating the number of days
@@ -68,7 +68,6 @@ const Users = () => {
                 <th>apellido</th>
                 <th>correo</th>
                 <th>antiguedad</th>
-                <th>n° de citas</th>
               </tr>
               {users
                 ?.filter((user) =>
@@ -82,7 +81,7 @@ const Users = () => {
                     <td>{users.lastname}</td>
                     <td className={styles.email}>{users.email}</td>
                     <td>{calculateAntiquity(users.createdAt)}</td>
-                    <td>citas</td>
+
                     {/*<td
                       className={styles.delete}
                       onClick={() => handleDeleteUser(users.id)}

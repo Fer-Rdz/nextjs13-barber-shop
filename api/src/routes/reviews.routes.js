@@ -13,6 +13,7 @@ router
   .get("/reviews", getReviews)
   .get("/reviews/:id", getReviewById)
   .post("/reviews", createReview)
-  .delete("/reviews/:id", deleteReview);
+  .delete("/reviews/:id", deleteReview)
+  .put("/reviews/:id", updateReview);
 
 export default router;

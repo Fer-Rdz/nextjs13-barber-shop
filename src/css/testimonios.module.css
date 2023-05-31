@@ -38,3 +38,10 @@
 .star {
   font-size: 2rem;
 }
+
+.testimonios_container button{
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: solid 1px black;
+}

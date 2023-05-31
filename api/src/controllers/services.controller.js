@@ -23,10 +23,9 @@ export const createServices = async (req, res) => {
 
 export const updateService = async (req, res) => {
   const { id } = req.params;
-  const { price, name } = req.body;
+  const { price } = req.body;
   const service = await Services.findByPk(id);
   service.price = price;
-  service.name = name;
   await service.save();
   res.send("Service updated");
 };

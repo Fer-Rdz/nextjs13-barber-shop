@@ -19,7 +19,7 @@
   border-radius: 5px;
   color: var(--stroke);
   animation: hide 500ms;
-
+  box-shadow: 0 0 10px 0 #00000017;
   transition: 300ms;
 }
 @keyframes hide {

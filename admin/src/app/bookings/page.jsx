@@ -128,19 +128,6 @@ const Bookings = () => {
             />
           </div>
         </div>
-
-        <table className={styles.table_th}>
-          <tbody>
-            <tr>
-              <th>fecha</th>
-              <th>hora</th>
-              <th>cliente</th>
-              <th className={styles.services_row}>servicios</th>
-              <th>precio total</th>
-              <th>vigencia</th>
-            </tr>
-          </tbody>
-        </table>
         <section className={styles.table_container}>
           <table className={styles.table}>
             <tbody>

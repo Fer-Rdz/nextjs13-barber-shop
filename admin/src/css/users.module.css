@@ -19,14 +19,7 @@
   margin-bottom: 50px;
   font-family: var(--crimson);
 }
-.user_main .title_container::after{
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 130px;
-  border: dashed 1px var(--stroke);
-}
+
 .user_main h1{
   text-transform: capitalize;
   font-size: 2rem;

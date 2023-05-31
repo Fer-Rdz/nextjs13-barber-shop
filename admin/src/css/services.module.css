@@ -24,14 +24,6 @@
   font-size: 2rem;
   text-transform: capitalize;
 }
-.services_main .services_title::after{
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 80px;
-  border: dashed 1px var(--stroke);
-}
 .services_main .table tr {
   border: solid 1px black;
 }
@@ -55,15 +47,8 @@
 }
 .services_main .table{
   border-radius: 5px;
-  margin-top: -20px;
 }
-.services_main .table .name_row th{
-  background: transparent;
-  border: none;
-  outline: none;
-  color: transparent;
-  box-shadow:  0 0 0  0 transparent;
-}
+
 .table_th th{
   border: solid 1px var(--main-text);
   background: var(--main-text);
@@ -71,4 +56,21 @@
   box-shadow: inset 0 1px 0 0 var(--white);
   text-transform: capitalize;
   padding: 0 50px;
+}
+
+.create{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+.create input{
+  padding: 10px;
+}
+
+.services_main button{
+  padding: 10px;
+  border: solid 1px black;
+  background: black;
+  color: white;
 }

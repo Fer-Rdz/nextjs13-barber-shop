@@ -82,14 +82,8 @@
 }
 .bookings_main .table {
   border-radius: 5px;
-  margin-top: -20px;
 }
-.bookings_main .table .name_row th{
-  background: transparent;
-  border: none;
-  outline: none;
-  color: transparent;
-}
+
 .bookings_main .table th {
   border: solid 1px var(--main-text);
   background: var(--main-text);

@@ -14,6 +14,6 @@ router
   .get("/clients/:email", getClientsByEmail)
   .post("/clients", createClient)
   .delete("/clients/:id", deleteClient)
-  .put("/clients/:id", updateClient);
+  .put("/client/:id", updateClient);
 
 export default router;

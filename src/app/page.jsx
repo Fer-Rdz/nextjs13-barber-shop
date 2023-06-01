@@ -95,31 +95,39 @@ const Home = () => {
             </span>
           </div>
         </article>
-        <h1 className={styles.services_title}>servicios</h1>
-        <article className={styles.services}>
-          <div>
-            <table>
-              <tbody>
-                {services
-                  ?.filter((services) =>
-                    `${services.name} ${services.price}`
-                      .toLowerCase()
-                      .includes(searchTerm.toLowerCase())
-                  )
-                  .map((services) => (
-                    <tr key={services?.id}>
-                      <ul>
-                        <li>
-                          <td>{services?.name}</td>
-                        </li>
-                      </ul>
-                      <td className={styles.price}>${services?.price}</td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
-          </div>
-        </article>
+        <div className={styles.services_client}>
+          <h1 className={styles.services_title}>servicios</h1>
+          <article className={styles.services}>
+            <div>
+              <table>
+                <tbody>
+                  {services
+                    ?.filter((services) =>
+                      `${services.name} ${services.price}`
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase())
+                    )
+                    .map((services) => (
+                      <div key={services?.id} className={styles.list_container}>
+                        <ul>
+                          <li>
+                            <span>{services?.name}</span>
+                          </li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <span className={styles.price}>
+                              ${services?.price}
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </div>
         <article className={styles.testimonios}>
           <div className={styles.title}>
             <h1>testimonios</h1>

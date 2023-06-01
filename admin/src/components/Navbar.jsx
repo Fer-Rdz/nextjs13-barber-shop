@@ -97,6 +97,7 @@ const Navbar = () => {
                 )}
               </Link>
             </li>
+            {/*
             <li onMouseLeave={handleReviewToolLeave}>
               <Link href={""} onMouseEnter={handleReviewToolEnter}>
                 <span onMouseEnter={handleReviewToolEnter}>
@@ -109,6 +110,7 @@ const Navbar = () => {
                 )}
               </Link>
             </li>
+            */}
           </ul>
         </nav>
       </section>

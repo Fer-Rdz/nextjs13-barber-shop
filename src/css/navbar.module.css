@@ -1,10 +1,11 @@
 .nav_container {
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
   font-family: var(--crimson);
-  background: var(--main-color);
-  border-bottom: dashed 1px var(--stroke);
+  background: #00000073;
+  border-bottom: solid 1px var(--stroke);
+  backdrop-filter: blur(20px);
 }
 .nav_container .user_drop {
   position: fixed;
@@ -14,8 +15,9 @@
   top: 70px;
   margin-left: -100px;
   padding: 10px;
-  background: var(--main-color);
-  border: dashed 1px var(--stroke);
+  backdrop-filter: blur(20px);
+  background: #000000;
+  border: solid 1px var(--stroke);
   border-radius: 5px;
   color: var(--stroke);
   animation: hide 500ms;
@@ -39,10 +41,9 @@
   display: flex;
   align-items: center;
   transition: 300ms;
-
 }
 .nav_container .user_drop div:hover {
-  color: var(--main-text);
+  color: var(--white);
 }
 .nav_container .user_drop div section {
   padding: 10px;
@@ -55,16 +56,16 @@
   text-transform: capitalize;
   font-weight: 500;
   font-size: 1rem;
-  color: var(--main-text);
+  color: var(--main-color);
 }
 .nav_container .user_drop div span {
-  color: var(--main-text);
+  color: var(--main-color);
 }
 .nav_container .user_drop div:hover ~ .user_drop div section h2 {
-  color: var(--main-text);
+  color: var(--main-color);
 }
 .nav_container .user_drop div section p {
-  color: var(--light-text);
+  color: var(--light-color);
   font-size: 0.8rem;
 }
 .nav_container .user_drop ul {
@@ -74,6 +75,7 @@
 .nav_container nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-width: 1100px;
   padding: 0 10px;
   margin: auto;
@@ -84,7 +86,7 @@
   align-items: center;
   gap: 25px;
 }
-.nav_container .logo_nav{
+.nav_container .logo_nav {
   display: flex;
 }
 .nav_container nav ul .login_buttons {
@@ -96,10 +98,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  padding: 50px 0 50px 0;
 }
-.nav_container nav ul li kbd{
-  border: solid 1px var(--stroke);
+.nav_container nav ul li kbd {
   background: var(--kbd);
   box-shadow: inset 0 1px 0 0 var(--white);
   padding: 3px;
@@ -128,10 +129,7 @@
   font-family: var(--logo);
   text-transform: capitalize;
   font-size: 1.3rem;
-  color: var(--main-text);
-}
-.nav_container nav ul li .nav_logo:hover {
-  color: var(--main-text);
+  color: var(--main-color);
 }
 .nav_container nav ul input {
   padding: 10px;
@@ -142,30 +140,35 @@
   text-decoration: none;
   color: var(--stroke);
   text-transform: capitalize;
-  font-size: 1rem;
+  font-size: 0.8rem;
   transition: 300ms;
   margin-bottom: 5px;
+  font-weight: 500;
 }
 .nav_container nav ul li a:hover {
-  color: var(--main-text);
+  color: var(--main-color);
 }
 .nav_container ul li a .nav_login {
   background: transparent;
-  color: var(--main-text);
-  padding: 10px;
-  border-radius: 50px;
-  transition: 400ms;
-  border: solid 1px var(--main-text);
-}
-.nav_container nav ul li a .nav_login:hover {
-  background: transparent;
-  color: var(--main-text);
-}
-.nav_container ul li a .nav_register {
-  background: var(--main-text);
   color: var(--main-color);
   padding: 10px;
   border-radius: 50px;
   transition: 400ms;
+  border: solid 1px var(--main-color);
+}
+.nav_container nav ul li a .nav_login:hover {
+  background: transparent;
+  color: var(--main-color);
+}
+.nav_container ul li a .nav_register {
+  background: var(--main-color);
+  color: var(--main-text);
+  padding: 10px;
+  border-radius: 50px;
+  transition: 400ms;
   border: solid 1px var(--main-text);
+}
+.dots {
+  color: white;
+  font-size: 1.2rem;
 }

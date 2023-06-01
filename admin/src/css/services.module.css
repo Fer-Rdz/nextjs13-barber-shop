@@ -9,7 +9,7 @@
   height: calc(100vh - 150px);
   margin-top: 150px;
 }
-.services_main .services_title{
+.services_main .services_title {
   width: 100%;
   padding: 10px 0;
   position: relative;
@@ -20,7 +20,7 @@
   margin-bottom: 50px;
   font-family: var(--crimson);
 }
-.services_main .services_title h1{
+.services_main .services_title h1 {
   font-size: 2rem;
   text-transform: capitalize;
 }
@@ -36,20 +36,20 @@
   padding: 0 50px;
 }
 .services_main .table td {
-  text-align: center;
+  text-align: start;
   text-transform: capitalize;
 }
-.services_main .table_container{
+.services_main .table_container {
   position: relative;
   overflow: auto;
   height: 500px;
   padding: 0 20px;
 }
-.services_main .table{
+.services_main .table {
   border-radius: 5px;
 }
 
-.table_th th{
+.table_th th {
   border: solid 1px var(--main-text);
   background: var(--main-text);
   color: var(--main-color);
@@ -58,19 +58,64 @@
   padding: 0 50px;
 }
 
-.create{
+.create {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 20px;
 }
-.create input{
+.create h1 {
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 2rem;
+}
+.create input {
   padding: 10px;
 }
 
-.services_main button{
+.services_main button {
   padding: 10px;
   border: solid 1px black;
   background: black;
   color: white;
+}
+
+.services_main .save {
+  padding: 20px;
+  margin: 20px;
+}
+
+.prices {
+  padding: 10px;
+  text-align: center;
+  font-family: var(--mono);
+  border: solid 1px black;
+}
+
+.editedPrice {
+  color: red;
+  padding: 10px;
+  text-align: center;
+  font-family: var(--mono);
+}
+.search {
+  display: flex;
+  align-items: center;
+}
+.search h3 {
+  padding: 6px;
+  border-radius: 5px 0 0 5px;
+  background: var(--main-text);
+  color: var(--white);
+  border: solid 1px var(--main-text);
+}
+.search_bar {
+  padding: 10px;
+  border: solid 1px var(--stroke);
+  outline: none;
+  border-radius: 0 5px 5px 0;
+  font-family: var(--crimson);
+}
+.search_bar:focus {
+  border: solid 1px var(--main-text);
 }

@@ -24,24 +24,24 @@
   align-items: center;
   color: var(--main-text);
   text-align: center;
-
 }
-.main section .price:hover{
+.main section .price:hover {
   cursor: pointer;
 }
-.main section .price h1{
-text-transform: capitalize  ;
+.main section .price h1 {
+  text-transform: capitalize;
 }
-.main section .price h2{
+.main section .price h2 {
   font-size: 1.5rem;
   font-style: italic;
   font-size: 4rem;
+  padding: 20px;
 }
-.main section .price .price_drop{
+.main section .price .price_drop {
   position: absolute;
   display: flex;
   align-items: center;
-  border-radius:5px;
+  border-radius: 5px;
   padding: 10px;
   top: 130px;
   bottom: 0;
@@ -50,6 +50,14 @@ text-transform: capitalize  ;
   font-style: italic;
   animation: tool 300ms;
   font-size: 2rem;
+}
+.users {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
 }
 @keyframes tool {
   from {

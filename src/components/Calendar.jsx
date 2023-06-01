@@ -205,6 +205,7 @@ const Calendar = () => {
       });
     }
   });
+  const currentHour = today.getHours();
 
   return (
     <>
@@ -277,8 +278,17 @@ const Calendar = () => {
                 // disabled={
                 //   !selectedDate || horasOcupadas[selectedDate].includes(horas)
                 // }
+                // disabled={
+                //   !selectedDate ||
+                //   horasOcupadas.some(
+                //     (item) =>
+                //       item.date === selectedDate && item.bookingTime === horas
+                //   )
+                // }
                 disabled={
                   !selectedDate ||
+                  (selectedDate === today.getDate() &&
+                    parseInt(horas) < currentHour) ||
                   horasOcupadas.some(
                     (item) =>
                       item.date === selectedDate && item.bookingTime === horas

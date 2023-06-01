@@ -5,18 +5,22 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 400px;
+  height: 500px;
   font-family: var(--crimson);
-  border-bottom: dashed 1px var(--stroke);
+  background: url("/A3.jpg");
+  background-size: cover;
 }
-.contact-hero h1 {
+.contact-hero .contact-title {
   text-transform: capitalize;
-  font-size: 3rem;
-  font-style: italic;
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -0.18rem;
+  color: white;
 }
 .contact-hero .contact-info {
   position: absolute;
-  background: var(--main-color);
+  background: #0000006c;
+  backdrop-filter: blur(20px);
   border-radius: 5px;
   display: flex;
   bottom: -60px;
@@ -24,16 +28,19 @@
   align-items: center;
   padding: 30px;
   gap: 50px;
-  border: dashed 1px var(--stroke);
+  border: solid 1px var(--stroke);
   font-family: var(--crimson);
   text-align: center;
+  z-index: 1;
 }
 .contact-hero .contact-info h1 {
   font-size: 1.2rem;
+  color: white;
 }
 .contact-hero .contact-info h2 {
   font-weight: normal;
   font-style: italic;
+  color: white;
 }
 .contact-hero .contact-info .phone,
 .email {
@@ -43,5 +50,7 @@
   text-transform: lowercase;
 }
 .map-container{
-  margin-top: 100px;
+position: relative;
+z-index: 0;
+
 }

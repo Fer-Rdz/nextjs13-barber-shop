@@ -39,6 +39,7 @@ const Users = () => {
       return minutes + " minutos";
     }
   };
+
   return (
     <>
       <section className={styles.user_main}>

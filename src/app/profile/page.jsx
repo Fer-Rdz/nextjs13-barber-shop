@@ -17,6 +17,15 @@ const Profile = () => {
       setLogin(parseData);
     }
   }, [getToken]);
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    const getID = Cookies.get("auth-token");
+    if (getID) {
+      const userData = window.atob(getID.split(".")[1]);
+      const parseData = JSON.parse(userData);
+      setUserData(parseData);
+    }
+  }, []);
   useEffect(() => {
     axios
       .get(`http://localhost:3512/date/${login.id}`)
@@ -25,6 +34,35 @@ const Profile = () => {
   const handleDeleteBooking = (bookingID) => {
     axios.delete(`http://localhost:3512/dates/${bookingID}`);
     window.location.reload();
+  };
+  const [editedEmail, setEditedEmail] = useState("");
+  const isValidEmail = (email) => {
+    // Utiliza una expresión regular para verificar el formato del correo
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+  const handleSaveChanges = () => {
+    // Realiza la solicitud de actualización al servidor utilizando axios o cualquier otra librería de tu elección
+    if (!isValidEmail(editedEmail)) {
+      // Si el correo no tiene el formato válido, muestra un alert
+      alert("El formato de correo no es válido");
+      return;
+    }
+    axios
+      .put(`http://localhost:3512/client/${userData.id}`, {
+        email: editedEmail,
+      })
+      .then((response) => {
+        // Actualiza el estado del correo en la página
+        setLogin({ ...login, email: editedEmail });
+        // Restablece el campo de entrada de correo editado
+        setEditedEmail("");
+        alert("Correo actualizado");
+      })
+      .catch((error) => {
+        // Maneja el error en caso de que ocurra
+        console.log(error);
+      });
   };
   return (
     <>
@@ -39,7 +77,14 @@ const Profile = () => {
           <h3>{login.email}</h3>
         </section>
         <div className="bookings-global">
-          <div>
+          <div className="bookings-title">
+            <input
+              type="email"
+              value={editedEmail}
+              placeholder="Cambia tu correo"
+              onChange={(e) => setEditedEmail(e.target.value)}
+            />
+            <button onClick={handleSaveChanges}>Guardar cambios</button>
             <h1>citas agendadas</h1>
           </div>
           <section className="user-bookings">

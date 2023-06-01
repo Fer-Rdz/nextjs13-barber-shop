@@ -26,10 +26,9 @@ export const createClient = async (req, res) => {
 
 export const updateClient = async (req, res) => {
   const { id } = req.params;
-  const { email, password } = req.body;
+  const { email } = req.body;
   const client = await Clients.findByPk(id);
   client.email = email;
-  client.password = password;
   await client.save();
   res.send("Client updated");
 };

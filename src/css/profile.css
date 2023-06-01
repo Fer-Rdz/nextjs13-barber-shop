@@ -3,11 +3,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 100px;
   width: 100%;
   font-family: var(--crimson);
   gap: 10px;
   text-transform: capitalize;
+}
+.bookings-title {
+  font-size: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.bookings-title input {
+  padding: 10px;
+}
+.bookings-title button {
+  padding: 10px;
+  background: black;
+  color: white;
+  border: solid 1px black;
 }
 .profile-container .bookings-global {
   display: flex;
@@ -17,29 +30,28 @@
   padding: 100px;
   border-radius: 5px;
 }
-.profile-container .bookings-global::after{
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 270px;
-  border-top: dashed 1px var(--stroke);
-}
 .profile-container .user-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  border-radius: 5px;
+  width: 100%;
+  height: 1000px;
+  background: url("/A4.jpg");
+  background-size: cover;
+  color: white;
+  background-attachment: fixed;
 }
 .profile-container .user-info h1 {
   font-size: 2rem;
   position: relative;
   font-weight: normal;
+  letter-spacing: -0.1rem;
+  font-weight: 700;
 }
 .profile-container .user-info h2 {
-  font-size: 2rem;
+  font-size: 3rem;
+  text-shadow: 0 1px 10px black;
 }
 .profile-container .user-info h3 {
   font-size: 1.3rem;
@@ -64,7 +76,7 @@
   display: flex;
 
   border-radius: 10px;
-  padding:50px;
+  padding: 50px;
 }
 .profile-container .bookings-services {
   border: dashed 1px var(--main-text);
@@ -73,14 +85,15 @@
 }
 .price,
 .total-price {
-  font-family: var(--crimson);
   font-weight: 700;
   font-style: italic;
   font-size: 2rem;
+  font-family: var(--mono);
   text-align: end;
 }
 .total-price {
   color: red;
+  font-family: var(--mono);
 }
 .no-bookings {
   color: var(--main-text);

@@ -1,10 +1,14 @@
 @import "./globals.css";
+.calendar-bg{
+  background: black;
 
+}
 .booking-container {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: auto auto 1fr;
   grid-template-rows: auto 1fr;
+  background: black;
 }
 .booking-container .global-container {
   display: flex;
@@ -12,6 +16,8 @@
   gap: 30px;
   align-items: flex-start;
   font-family: var(--crimson);
+  
+
 }
 .booking-container .global-container .calendar-container {
   display: flex;
@@ -28,9 +34,12 @@
   text-align: center;
   font-family: var(--crimson);
   text-transform: capitalize;
+  color: white;
+  background: black;
 }
 .main-booking-container {
   display: flex;
+  
 }
 .main-booking-container .book-info {
   display: flex;
@@ -41,20 +50,25 @@
   color: var(--main-text);
   align-items: start;
   justify-content: flex-start;
+  color: white;
+  background: black;
   padding: 20px;
+
 }
 .main-booking-container .book-info .price {
   display: flex;
   flex-direction: column;
+  font-family: var(--crimson);
   gap: 20px;
+
 }
 .main-booking-container .book-info .price button {
   display: flex;
   align-items: end;
   justify-content: center;
   padding: 10px;
-  background: var(--main-text);
-  color: var(--main-color);
+  background: var(--main-color);
+  color: var(--main-text);
   border: solid 1px var(--main-text);
   font-family: var(--crimson);
   text-transform: capitalize;
@@ -85,6 +99,8 @@
   border: dashed 1px var(--stroke);
   padding: 10px;
   border-radius: 5px;
+  font-family: var(--crimson);
+  
 }
 .main-booking-container .book-info .book-date .date-select {
   text-align: end;
@@ -104,6 +120,8 @@
 }
 .main-booking-container .book-info .services-price .booking-price {
   color: red;
+  font-family: var(--mono);
+  font-size: 3rem;
 }
 .main-booking-container .book-info button {
   display: flex;
@@ -114,9 +132,9 @@
   height: 303px;
   gap: 20px;
   padding: 50px;
-  background: var(--main-color);
+  background: var(--main-text);
   border: solid 1px var(--stroke);
-  color: var(--main-text);
+  color: var(--main-color);
   border-radius: 5px;
   grid-row: 2/2;
   grid-column: 1/2;
@@ -129,9 +147,9 @@
 .services button {
   outline: none;
   padding: 20px;
-  background: var(--main-color);
-  border: dashed 1px var(--stroke);
-  color: var(--main-white);
+  background: var(--main-text);
+  border: solid 1px var(--stroke);
+  color: var(--main-color);
   font-family: var(--crimson);
   text-transform: capitalize;
   border-radius: 5px;
@@ -153,9 +171,9 @@
   letter-spacing: -0.05rem;
 }
 .booking-container .global-container .calendar-container .calendar-box {
-  background: var(--main-color);
+  background: var(--main-text);
   border: solid 1px var(--stroke);
-  color: var(--main-text);
+  color: var(--main-color);
   border-radius: 5px;
 }
 .booking-container .global-container .calendar-container .calendar-box span {
@@ -196,18 +214,18 @@
 }
 .calendar-body .day-number .day:hover {
   cursor: pointer;
-  background: var(--main-text);
+  background: var(--main-color);
   transform: scale(125%);
-  color: var(--main-color);
+  color: var(--main-text);
   box-shadow: 0 0 50px 0 var(--shadow);
 }
 .calendar-body .day-number .past {
   position: relative;
-  color: red;
+  color: #4d4d4d;
   pointer-events: none;
 }
 .calendar-body .day-number .day .selected {
-  background: red !important;
+  background: #4d4d4d !important;
   display: none;
 }
 .calendar-body .day-number .past:hover {
@@ -219,9 +237,9 @@
 .schedule-title {
   grid-column: 1/3;
   grid-row: 3/3;
-  background: var(--main-color);
+  background: var(--main-text);
   border: solid 1px var(--stroke);
-  color: var(--main-text);
+  color: var(--main-color);
   padding: 20px;
   text-align: center;
   font-family: var(--crimson);
@@ -232,16 +250,16 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 10px;
-  background: var(--main-color);
+  background: var(--main-text);
   border: solid 1px var(--stroke);
-  color: var(--main-text);
+  color: var(--main-color);
   padding: 20px;
   border-radius: 5px;
   grid-row: 4/4;
   grid-column: 1/3;
 }
 .schedule button:disabled {
-  color: red;
+  color: #4d4d4d;
   pointer-events: none;
 }
 .schedule button {
@@ -253,12 +271,12 @@
   transition: 300ms;
   border-radius: 5px;
   font-weight: normal;
-  color: var(--main-text);
+  color: var(--main-color);
 }
 .schedule button:hover {
   cursor: pointer;
-  background: var(--main-text);
-  color: var(--main-color);
+  background: var(--main-color);
+  color: var(--main-text);
   box-shadow: 0 0 50px 0 var(--shadow);
 }
 .book-services {

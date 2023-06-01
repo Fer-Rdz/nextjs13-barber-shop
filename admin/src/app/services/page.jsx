@@ -3,7 +3,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import styles from "@/css/services.module.css";
 import { AiOutlineSearch } from "react-icons/ai";
+import { useRouter } from "next/navigation";
 const Services = () => {
+  const router = useRouter();
   const [services, setServices] = useState();
   useEffect(() => {
     axios
@@ -34,7 +36,8 @@ const Services = () => {
         price: price,
       })
       .then((response) => {
-        alert("Service added:", response.data);
+        alert("servicio añadido");
+        window.location.reload();
         // Realizar cualquier acción adicional después de agregar el servicio
       })
       .catch((error) => {
@@ -61,6 +64,74 @@ const Services = () => {
       .get("http://localhost:3512/services")
       .then((response) => setServices(response.data));
   }, []);
+
+  useEffect(() => {
+    axios.get("http://localhost:3512/services").then((response) => {
+      // Inicializar el estado 'services' con el precio actual de los servicios
+      const initialServices = response.data.map((service) => ({
+        ...service,
+        editedPrice: service.price,
+        edited: false,
+      }));
+      setServices(initialServices);
+    });
+  }, []);
+
+  const [editedPrice, setEditedPrice] = useState("");
+  const handleEditPrice = (serviceId, newPrice) => {
+    const updatedServices = services.map((service) => {
+      if (service.id === serviceId) {
+        return {
+          ...service,
+          editedPrice: newPrice,
+          edited: true,
+        };
+      }
+      return service;
+    });
+    setServices(updatedServices);
+  };
+
+  const handleSaveChanges = () => {
+    // Obtener los servicios con precios editados
+    const servicesToUpdate = services.filter(
+      (service) => service.price !== service.editedPrice
+    );
+
+    // Verificar si hay servicios para actualizar
+    if (servicesToUpdate.length === 0) {
+      alert("No hay cambios pendientes.");
+      return;
+    }
+
+    // Enviar una solicitud PUT para actualizar los precios de los servicios
+    servicesToUpdate.forEach((service) => {
+      axios
+        .put(`http://localhost:3512/service/${service.id}`, {
+          price: service.editedPrice,
+        })
+        .then((response) => {
+          console.log("Precio actualizado:", response.data);
+          // Realizar cualquier acción adicional después de actualizar el precio
+        })
+        .catch((error) => {
+          console.error("Error al actualizar el precio:", error);
+          // Manejar errores de la solicitud de actualización
+        });
+    });
+
+    // Actualizar el estado con los precios editados
+    setServices((prevServices) =>
+      prevServices.map((service) => ({
+        ...service,
+        price: service.editedPrice,
+      }))
+    );
+
+    alert("Cambios guardados exitosamente.");
+    window.location.reload();
+  };
+
   return (
     <>
       <section className={styles.services_main}>
@@ -118,17 +189,28 @@ const Services = () => {
                   <tr key={services.id}>
                     <td>{services.name}</td>
 
-                    <td>${services.price}</td>
                     <td>
-                      <button onClick={() => handleDeleteService(services.id)}>
-                        Borrar servicio
-                      </button>
+                      $
+                      <input
+                        className={
+                          services.edited ? styles.editedPrice : styles.prices
+                        }
+                        type="text"
+                        value={services.editedPrice || services.price}
+                        onChange={(e) =>
+                          handleEditPrice(services.id, e.target.value)
+                        }
+                      />
                     </td>
+                    <td></td>
                   </tr>
                 ))}
             </tbody>
           </table>
         </section>
+        <button onClick={handleSaveChanges} className={styles.save}>
+          Guardar cambios
+        </button>
       </section>
     </>
   );

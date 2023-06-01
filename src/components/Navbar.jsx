@@ -12,11 +12,14 @@ import Link from "next/link";
 import Cookies from "js-cookie";
 import Register from "./Register";
 import Login from "./Login";
+import Dots from "./Dots";
+import { BiDotsVertical } from "react-icons/bi";
 
 const Navbar = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDotsOpen, setIsDotsOpen] = useState(false);
   const [login, setLogin] = useState(false);
   const getToken = Cookies.get("auth-token");
   const router = useRouter();
@@ -47,6 +50,13 @@ const Navbar = () => {
       setLogin(parseData);
     }
   }, [getToken]);
+
+  const openDots = () => {
+    setIsDotsOpen(true);
+  };
+  const closeDots = () => {
+    setIsDotsOpen(false);
+  };
 
   const openRegister = () => {
     setIsRegisterOpen(true);
@@ -113,9 +123,7 @@ const Navbar = () => {
                   barbel
                 </Link>
               </div>
-              <div>
-                <kbd>ctrl</kbd>+<kbd>z</kbd>
-              </div>
+              <div></div>
             </li>
           </ul>
           <ul>
@@ -123,9 +131,7 @@ const Navbar = () => {
               <Link href="/contact">
                 <span>contactanos</span>
               </Link>
-              <div>
-                <kbd>ctrl</kbd>+<kbd>x</kbd>
-              </div>
+              <div></div>
             </li>
             {login ? (
               <ul>
@@ -133,17 +139,13 @@ const Navbar = () => {
                   <Link href="/testimonios">
                     <span>escribenos una reseña</span>
                   </Link>
-                  <div>
-                    <kbd>ctrl</kbd>+<kbd>c</kbd>
-                  </div>
+                  <div></div>
                 </li>
                 <li>
                   <Link href="/bookings">
                     <span>agendar cita</span>
                   </Link>
-                  <div>
-                    <kbd>ctrl</kbd>+<kbd>v</kbd>
-                  </div>
+                  <div></div>
                 </li>
                 <li
                   className={styles.nav_user}
@@ -153,9 +155,7 @@ const Navbar = () => {
                   <Link className={styles.user_name_nav} href="#">
                     <span>{login.name}</span>
                   </Link>
-                  <div onMouseEnter={handleMouseEnter}>
-                    <kbd>ctrl</kbd>+<kbd>b</kbd>
-                  </div>
+                  <div onMouseEnter={handleMouseEnter}></div>
                   {isMenuOpen && (
                     <div
                       className={styles.user_drop}
@@ -201,10 +201,16 @@ const Navbar = () => {
                 </li>
               </div>
             )}
+            <li>
+              <span className={styles.dots} onClick={openDots}>
+                <BiDotsVertical />
+              </span>
+            </li>
           </ul>
         </nav>
         <Register isOpen={isRegisterOpen} onClose={closeRegister}></Register>
         <Login isOpen={isLoginOpen} onClose={closeLogin}></Login>
+        <Dots isOpen={isDotsOpen} onClose={closeDots}></Dots>
       </section>
     </>
   );

@@ -14,6 +14,6 @@ router
   .post("/service", createService)
   .post("/services/", createServices)
   .delete("/services/:id", deleteService)
-  .put("/services/:id", updateService);
+  .put("/service/:id", updateService);
 
 export default router;

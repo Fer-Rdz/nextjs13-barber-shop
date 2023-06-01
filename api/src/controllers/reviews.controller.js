@@ -17,6 +17,15 @@ export const getReviewById = async (req, res) => {
   res.json(review);
 };
 
+export const getReviewByClientId = async (req, res) => {
+  const { client_id } = req.params;
+  const review = await Reviews.findOne({
+    where: { client_id },
+    include: [Clients],
+  });
+  res.json(review);
+};
+
 export const createReview = async (req, res) => {
   const { id, message, client_id, stars } = req.body;
   const newReviews = await Reviews.create({

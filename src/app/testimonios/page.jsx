@@ -53,6 +53,10 @@ const Testimonios = () => {
   }, []);
 
   const saveReview = async (message, stars) => {
+    if (text === "" || rating === 0) {
+      alert("Por favor, escribe una reseña y selecciona una calificación.");
+      return;
+    }
     try {
       const id = userData.id;
       const response = await axios.get(`http://localhost:3512/review/${id}`);

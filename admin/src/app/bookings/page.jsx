@@ -73,6 +73,11 @@ const Bookings = () => {
           return clientName.includes(searchLower);
         });
       }
+      if (showValidBookings) {
+        filtered = filtered.filter((booking) =>
+          isBookingValid(booking.date, booking.bookingTime)
+        );
+      }
       const sorted = filtered.sort((a, b) => {
         const dateA = new Date(a.date);
         const dateB = new Date(b.date);
@@ -102,6 +107,21 @@ const Bookings = () => {
 
     return bookingDateTime < currentDateTime;
   };
+  const isBookingValid = (bookingDate, bookingTime) => {
+    const currentDateTime = new Date();
+    const [bookingYear, bookingMonth, bookingDay] = bookingDate.split("-");
+    const [bookingHours, bookingMinutes] = bookingTime.split(":");
+    const bookingDateTime = new Date(
+      bookingYear,
+      bookingMonth - 1,
+      bookingDay,
+      bookingHours,
+      bookingMinutes
+    );
+
+    return bookingDateTime >= currentDateTime;
+  };
+  const [showValidBookings, setShowValidBookings] = useState(true);
 
   return (
     <>

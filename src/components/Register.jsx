@@ -31,6 +31,21 @@ const Register = ({ isOpen, onClose, children }) => {
     setEmailError(false);
     setPasswordError(false);
     setFormError(false);
+    setEmailValidationError(false);
+    setPasswordValidationError(false);
+
+    // Validar formato de correo electrónico
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      setEmailValidationError(true);
+      return; // Detener el envío del formulario
+    }
+
+    // Validar longitud de la contraseña
+    if (password.length < 6) {
+      setPasswordValidationError(true);
+      return; // Detener el envío del formulario
+    }
 
     if (!name || !lastname || !email || !password) {
       setFormError(true);
@@ -62,8 +77,17 @@ const Register = ({ isOpen, onClose, children }) => {
   };
 
   const handleInputChange = () => {
+    const { name, value } = event.target;
     setFormError(false);
+    if (name === "email") {
+      setEmailValidationError(false);
+    } else if (name === "password") {
+      setPasswordValidationError(false);
+    }
   };
+
+  const [emailValidationError, setEmailValidationError] = useState(false);
+  const [passwordValidationError, setPasswordValidationError] = useState(false);
 
   if (!isOpen) return null;
 
@@ -120,6 +144,11 @@ const Register = ({ isOpen, onClose, children }) => {
                 }}
               />
             </div>
+            {emailValidationError && (
+              <p className="error-message">
+                Ingrese un correo electrónico válido.
+              </p>
+            )}
             <div className="password">
               <label>contraseña</label>
               <input
@@ -133,6 +162,11 @@ const Register = ({ isOpen, onClose, children }) => {
                 }}
               />
             </div>
+            {passwordValidationError && (
+              <p className="error-message">
+                La contraseña debe tener al menos 6 caracteres.
+              </p>
+            )}
             <button onClick={handleSubmit} className="join">
               ingresar
             </button>

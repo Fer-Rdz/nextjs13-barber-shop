@@ -110,16 +110,12 @@ export default function Home() {
               </div>
             )} */}
             <h1>ganancias por dia</h1>
-            {calculateTotalPriceByDay().map(([date, totalPrice]) => (
-              <p key={date}>
-                {new Date(date).toLocaleDateString("es-ES", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-                : ${totalPrice}
-              </p>
-            ))}
+            {Object.entries(calculateTotalPriceByDay()).map(
+              ([monthYear, totalPrice]) => {
+                const [month, year] = monthYear.split("-");
+                return <p key={monthYear}>${totalPrice}</p>;
+              }
+            )}
           </article>
         </section>
         <div className={styles.users}>

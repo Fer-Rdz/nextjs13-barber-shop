@@ -2,18 +2,17 @@
   position: absolute;
   align-items: center;
   display: flex;
-  padding-left: 20px;
   height: 100vh;
   top: 0;
-  font-family: var(--crimson);
-  background: white;
+  font-family: var(--serif);
   z-index: 1;
+  padding-left: 30px;
 }
 .nav_container nav {
   position: absolute;
   align-items: center;
   display: flex;
-  border: solid 1px var(--stroke);
+  border: solid 1px black;
   border-radius: 5px;
   padding: 10px;
 }
@@ -37,11 +36,13 @@
   border-radius: 5px;
 }
 .nav_container nav ul li a:hover {
-  background: var(--stroke);
+  background: black;
+  color: white;
 }
 .user_tool {
   position: absolute;
-  border: solid 1px var(--stroke);
+  border: solid 1px black;
+  background: black;
   left: 70px;
   padding: 10px;
   border-radius: 5px;

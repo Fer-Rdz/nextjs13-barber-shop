@@ -113,7 +113,11 @@ export default function Home() {
             {Object.entries(calculateTotalPriceByDay()).map(
               ([monthYear, totalPrice]) => {
                 const [month, year] = monthYear.split("-");
-                return <p key={monthYear}>${totalPrice}</p>;
+                return (
+                  <p key={monthYear}>
+                    <p>${totalPrice}</p>
+                  </p>
+                );
               }
             )}
           </article>
@@ -123,9 +127,12 @@ export default function Home() {
           {Object.entries(userCountByMonth).map(([monthYear, count]) => {
             const [month, year] = monthYear.split("-");
             return (
-              <p key={monthYear}>
-                {month} {year}: {count} usuarios registrados
-              </p>
+              <div>
+                <p key={monthYear} className={styles.user_month}>
+                  {month} {year}
+                </p>
+                <p>{count} usuarios registrados</p>
+              </div>
             );
           })}
         </div>

@@ -6,7 +6,7 @@
   height: 950px;
   justify-content: center;
   align-items: center;
-  font-family: var(--crimson);
+  font-family: var(--serif);
 
   background: url(/A1.jpg);
   background-size: cover;
@@ -86,6 +86,7 @@
 .hero .search input {
   border: none;
   outline: none;
+  font-family: var(--serif);
 }
 .hero .search:hover {
   cursor: pointer;
@@ -109,7 +110,7 @@
   height: 600px;
   align-items: center;
   gap: 20px;
-  font-family: var(--crimson);
+  font-family: var(--serif);
 }
 .list_container {
   display: flex;
@@ -132,15 +133,15 @@
 }
 .services div .price {
   font-weight: bold;
-  font-family: var(--mono);
+  font-family: var(--serif);
+  color: var(--yellow);
 }
 .services_title {
   text-align: center;
   padding-top: 50px;
   text-transform: capitalize;
-  font-family: var(--crimson);
+  font-family: var(--serif);
   font-size: 4rem;
-  letter-spacing: -0.2rem;
   padding-bottom: 50px;
   font-weight: 700;
 }
@@ -148,10 +149,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 500px;
   padding-top: 50px;
+  padding-bottom: 50px;
   align-items: center;
-  font-family: var(--crimson);
+  font-family: var(--serif);
   gap: 20px;
 }
 .container {
@@ -167,7 +168,6 @@
   font-size: 4rem;
   font-weight: 700;
   text-transform: capitalize;
-  letter-spacing: -0.2rem;
 }
 .testimonios .card {
   display: flex;
@@ -177,4 +177,12 @@
   border: solid 1px var(--stroke);
   padding: 20px;
   border-radius: 5px;
+}
+.testimonios .card h1 {
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.stars {
+  color: var(--yellow);
+  font-size: 2rem;
 }

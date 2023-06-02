@@ -159,7 +159,7 @@ const Bookings = () => {
                 <th>precio total</th>
                 <th>vigencia</th>
               </tr>
-              {filteredBookings?.map((dates) => (
+              {bookings?.map((dates) => (
                 <tr key={dates.id}>
                   <td>{dates.date}</td>
                   <td>{dates.bookingTime}</td>

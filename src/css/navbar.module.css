@@ -2,7 +2,7 @@
   position: fixed;
   width: 100%;
   z-index: 2;
-  font-family: var(--crimson);
+  font-family: var(--serif);
   background: #00000073;
   border-bottom: solid 1px var(--stroke);
   backdrop-filter: blur(20px);

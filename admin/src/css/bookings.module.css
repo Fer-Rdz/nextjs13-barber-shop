@@ -5,11 +5,12 @@
   align-items: center;
   width: 100%;
   height: 100vh;
-  font-family: var(--crimson);
+  font-family: var(--serif);
   height: calc(100vh - 150px);
-  margin-top: 150px;
+  padding-top: 150px;
+  background: var(--yellow);
 }
-.bookings_main .filter_container{
+.bookings_main .filter_container {
   width: 100%;
   padding: 10px 0;
   position: relative;
@@ -18,66 +19,66 @@
   gap: 10px;
   align-items: center;
   margin-bottom: 50px;
-  font-family: var(--crimson);
+  font-family: var(--serif);
 }
-.bookings_main .filter_container::after{
+.bookings_main .filter_container::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   top: 190px;
-
 }
-.bookings_main .filter_container .search{
+.bookings_main .filter_container .search {
   display: flex;
   align-items: center;
 }
-.bookings_main .filter_container .search h3{
+.bookings_main .filter_container .search h3 {
   padding: 6px;
   border-radius: 5px 0 0 5px;
   background: var(--main-text);
   color: var(--white);
   border: solid 1px var(--main-text);
 }
-.bookings_main .filter_container .search_bar{
+.bookings_main .filter_container .search_bar {
   padding: 10px;
-  border: solid 1px var(--stroke);
+  border: solid 1px black;
   outline: none;
   border-radius: 0 5px 5px 0;
-  font-family: var(--crimson);
+  background: transparent;
+  font-family: var(--serif);
 }
-.bookings_main .filter_container .search_bar:focus{
+.bookings_main .filter_container .search_bar::placeholder {
+  color: black;
+}
+.bookings_main .filter_container .search_bar:focus {
   border: solid 1px var(--main-text);
 }
-.bookings_main .filter_container h1{
-
+.bookings_main .filter_container h1 {
   display: flex;
   justify-content: center;
   text-transform: capitalize;
   width: 100%;
   top: 70px;
-  font-size: 2rem;
-
+  font-size: 5rem;
 }
-.bookings_main .table_container{
+.bookings_main .table_container {
   position: relative;
   overflow: auto;
   height: 500px;
   padding: 0 20px;
 }
 
-.table_th tr{
+.table_th tr {
   border: solid 1px black;
 }
-.table_th th{
+.table_th th {
   border: solid 1px var(--main-text);
   background: var(--main-text);
   color: var(--main-color);
-  box-shadow: inset 0 1px 0 0 var(--white);
   text-transform: capitalize;
   padding: 0 50px;
 }
-.bookings_main .services_row{
+.bookings_main .services_row {
   width: 230px;
 }
 .bookings_main .table {
@@ -88,9 +89,9 @@
   border: solid 1px var(--main-text);
   background: var(--main-text);
   color: var(--main-color);
-  box-shadow: inset 0 1px 0 0 var(--white);
   text-transform: capitalize;
   padding: 0 50px;
+  font-weight: normal;
 }
 .bookings_main .table td {
   text-align: center;

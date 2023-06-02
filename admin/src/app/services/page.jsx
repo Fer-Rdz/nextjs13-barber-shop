@@ -51,6 +51,7 @@ const Services = () => {
       .delete(`http://localhost:3512/services/${serviceId}`)
       .then((response) => {
         console.log("Service deleted:", response.data);
+        window.location.reload();
         // Realizar cualquier acción adicional después de eliminar el servicio
       })
       .catch((error) => {
@@ -135,42 +136,47 @@ const Services = () => {
   return (
     <>
       <section className={styles.services_main}>
-        <div className={styles.services_title}>
-          <h1>servicios</h1>
-          <div className={styles.search}>
-            <h3>
-              {" "}
-              <AiOutlineSearch />
-            </h3>
+        <div className={styles.services_create}>
+          <div className={styles.services_title}>
+            <h1>servicios</h1>
+            <div className={styles.search}>
+              <h3>
+                {" "}
+                <AiOutlineSearch />
+              </h3>
+              <input
+                className={styles.search_bar}
+                type="search"
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+                name=""
+                id=""
+                placeholder="buscar servicio..."
+              />
+            </div>
+          </div>
+          <div className={styles.create}>
+            <div>
+              <h1>crear servicio</h1>
+            </div>
             <input
-              className={styles.search_bar}
-              type="search"
-              value={searchTerm}
-              onChange={(event) => setSearchTerm(event.target.value)}
-              name=""
-              id=""
-              placeholder="buscar servicio..."
+              type="text"
+              placeholder="Nombre del servicio"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
+            <input
+              type="number"
+              placeholder="Precio"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+            />
+            <button onClick={handleAddService}>Añadir servicio</button>
+            <button onClick={handleSaveChanges} className={styles.save}>
+              Guardar cambios
+            </button>
           </div>
-        </div>
-        <div className={styles.create}>
-          <div>
-            <h1>crear servicio</h1>
-          </div>
-          <input
-            type="text"
-            placeholder="Nombre del servicio"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="number"
-            placeholder="Precio"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-          />
-          <button onClick={handleAddService}>Añadir servicio</button>
         </div>
         <section className={styles.table_container}>
           <table className={styles.table}>
@@ -195,22 +201,23 @@ const Services = () => {
                         className={
                           services.edited ? styles.editedPrice : styles.prices
                         }
-                        type="text"
+                        type="number"
                         value={services.editedPrice || services.price}
                         onChange={(e) =>
                           handleEditPrice(services.id, e.target.value)
                         }
                       />
                     </td>
-                    <td></td>
+                    <td>
+                      <button onClick={() => handleDeleteService(services.id)}>
+                        Eliminar
+                      </button>
+                    </td>
                   </tr>
                 ))}
             </tbody>
           </table>
         </section>
-        <button onClick={handleSaveChanges} className={styles.save}>
-          Guardar cambios
-        </button>
       </section>
     </>
   );

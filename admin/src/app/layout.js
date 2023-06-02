@@ -1,4 +1,5 @@
 import "./globals.css";
+import "@/css/main.css";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Title from "@/components/Title";

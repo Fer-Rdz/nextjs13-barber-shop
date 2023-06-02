@@ -4,11 +4,12 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  font-family: var(--crimson);
+  font-family: var(--serif);
   height: calc(100vh - 150px);
-  margin-top: 150px;
+  padding-top: 150px;
+  background: var(--yellow);
 }
-.user_main .title_container{
+.user_main .title_container {
   width: 100%;
   padding: 10px 0;
   position: relative;
@@ -17,45 +18,44 @@
   gap: 10px;
   align-items: center;
   margin-bottom: 50px;
-  font-family: var(--crimson);
+  font-family: var(--serif);
 }
 
-.user_main h1{
+.user_main h1 {
   text-transform: capitalize;
-  font-size: 2rem;
+  font-size: 5rem;
 }
-.search{
+.search {
   display: flex;
   align-items: center;
 }
-.search h3{
+.search h3 {
   padding: 6px;
   border-radius: 5px 0 0 5px;
   background: var(--main-text);
   color: var(--white);
   border: solid 1px var(--main-text);
 }
-.search_bar{
+.search_bar {
   padding: 10px;
   border: solid 1px var(--stroke);
   outline: none;
   border-radius: 0 5px 5px 0;
-  font-family: var(--crimson);
+  font-family: var(--serif);
 }
-.search_bar:focus{
+.search_bar:focus {
   border: solid 1px var(--main-text);
 }
-.table{
+.table {
   border-radius: 5px;
-
 }
-.table_container{
+.table_container {
   position: relative;
   overflow: auto;
   height: 500px;
   padding: 0 20px;
 }
-.table_th th{
+.table_th th {
   border: solid 1px var(--main-text);
   background: var(--main-text);
   color: var(--main-color);
@@ -63,7 +63,7 @@
   text-transform: capitalize;
   padding: 0 50px;
 }
-.user_main .table .user_row th{
+.user_main .table .user_row th {
   background: black;
   border: none;
   outline: none;
@@ -72,8 +72,12 @@
 }
 .user_main .search input {
   padding: 10px;
-  border: solid 1px var(--stroke);
+  border: solid 1px black;
   outline: none;
+  background: transparent;
+}
+.user_main .search input::placeholder {
+  color: black;
 }
 .user_main .search input:focus {
   border: solid 1px var(--main-text);
@@ -81,7 +85,7 @@
 .user_main .table tr {
   border: solid 1px black;
 }
-.user_main .table .delete{
+.user_main .table .delete {
   color: red;
 }
 .user_main .table th {

@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  font-family: var(--crimson);
+  font-family: var(--serif);
   gap: 10px;
   text-transform: capitalize;
 }
@@ -48,16 +48,18 @@
   font-weight: normal;
   letter-spacing: -0.1rem;
   font-weight: 700;
+  text-shadow: 0 1px 10px black;
 }
 .profile-container .user-info h2 {
   font-size: 3rem;
   text-shadow: 0 1px 10px black;
 }
 .profile-container .user-info h3 {
-  font-size: 1.3rem;
+  font-size: 2rem;
   text-transform: lowercase;
   font-weight: normal;
-  font-style: italic;
+  color: white;
+  text-shadow: 0 1px 10px black;
 }
 .profile-container .user-bookings {
   display: flex;
@@ -88,12 +90,12 @@
   font-weight: 700;
   font-style: italic;
   font-size: 2rem;
-  font-family: var(--mono);
+  font-family: var(--serif);
   text-align: end;
 }
 .total-price {
-  color: red;
-  font-family: var(--mono);
+  color: var(--yellow);
+  font-family: var(--serif);
 }
 .no-bookings {
   color: var(--main-text);

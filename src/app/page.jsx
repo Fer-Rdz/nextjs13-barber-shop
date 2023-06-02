@@ -143,7 +143,7 @@ const Home = () => {
                     </h1>
                     <span>
                       {Array.from({ length: reviews.stars }).map((_, index) => (
-                        <span key={index} className="star filled">
+                        <span key={index} className={styles.stars}>
                           ★
                         </span>
                       ))}

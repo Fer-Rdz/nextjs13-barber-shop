@@ -3,7 +3,8 @@
   place-content: center;
   width: 100%;
   height: 100vh;
-  font-family: var(--crimson);
+  font-family: var(--serif);
+  background: var(--yellow);
 }
 
 .main section {
@@ -30,12 +31,14 @@
 }
 .main section .price h1 {
   text-transform: capitalize;
+  font-size: 2rem;
 }
 .main section .price h2 {
   font-size: 1.5rem;
   font-style: italic;
   font-size: 4rem;
   padding: 20px;
+  color: black;
 }
 .main section .price .price_drop {
   position: absolute;
@@ -68,4 +71,8 @@
     opacity: 1;
     transform: translateY(0px);
   }
+}
+
+.user_month {
+  font-weight: bold;
 }

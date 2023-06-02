@@ -5,9 +5,9 @@
   align-items: center;
   width: 100%;
   height: 100vh;
-  font-family: var(--crimson);
-  background: black;
-  color: white;
+  font-family: var(--serif);
+  background: white;
+  color: black;
 }
 .testimonios_container h1 {
   text-transform: capitalize;
@@ -26,10 +26,10 @@
   font-family: var(--mono);
   font-size: 1.2rem;
   background: transparent;
-  color: white;
+  color: black;
 }
 .testimonios_container .message textarea:focus {
-  border: solid 1px var(--main-color);
+  border: solid 1px var(--main-text);
 }
 .testimonios_container .message h2 {
   font-size: 1rem;
@@ -40,11 +40,12 @@
 }
 .star {
   font-size: 2rem;
+  color: var(--yellow);
 }
-.star:hover{
+.star:hover {
   cursor: pointer;
 }
-.testimonios_container button{
+.testimonios_container button {
   padding: 10px;
   background-color: black;
   color: white;

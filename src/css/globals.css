@@ -1,18 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fira+Code:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fira+Code:wght@300;400;500;600;700&display=swap");
 :root {
   --crimson: "Inter";
-  --serif:"Crimson";
+  --serif: "Barlow Condensed";
   --logo: "old english text mt";
   --mono: "Source Code Pro";
   --main-color: #ffffff;
   --white: #ffffff;
   --stroke: #c2c2c2;
   --main-text: #000000;
+  --yellow: #ce8f08;
   --unhover: #646464;
-  --logo-color:  invert(100%) sepia(1%) saturate(2226%) hue-rotate(114deg) brightness(101%) contrast(94%);
+  --logo-color: invert(100%) sepia(1%) saturate(2226%) hue-rotate(114deg)
+    brightness(101%) contrast(94%);
   --shadow: #0000004b;
   --alert: #f8888828;
   --alert-text: #ff0000a1;
   --kbd: radial-gradient(100% 100% at 49.86% 0%, #5a74e9 0%, #1e2366 100%);
 }
-

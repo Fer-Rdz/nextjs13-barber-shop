@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   display: flex;
-  font-family: var(--crimson);
+  font-family: var(--serif);
   background: rgba(255, 255, 255, 0);
   justify-content: center;
   align-items: center;
@@ -50,7 +50,7 @@
   font-size: 2rem;
   font-weight: 800;
   letter-spacing: -0.07rem;
-  color: var(--main-text);
+  color: var(--yellow);
   text-align: center;
 }
 .login-container .form-container p {
@@ -75,7 +75,7 @@
   background: var(--main-text);
   color: var(--main-color);
   padding: 10px 20px;
-  font-family: var(--crimson);
+  font-family: var(--serif);
   text-transform: capitalize;
   font-size: 1rem;
   border: solid 1px var(--main-text);
@@ -108,7 +108,7 @@
 .login-container .container .form-container .email_section input,
 .password_section input {
   padding: 10px;
-  font-family: var(--crimson);
+  font-family: var(--serif);
   font-size: 1rem;
   border: solid 1px var(--stroke);
   background: var(--main-color);
@@ -134,27 +134,32 @@
   left: 10px;
   position: absolute;
 }
-.form-container .user-name{
+.form-container .user-name {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-.form-container .name, .lastname{
+.form-container .name,
+.lastname {
   display: flex;
   flex-direction: column;
 }
-.form-container .email, .password{
+.form-container .email,
+.password {
   display: flex;
   flex-direction: column;
 }
-.form-container .email input, .password input, .name input, .lastname input{
+.form-container .email input,
+.password input,
+.name input,
+.lastname input {
   padding: 10px;
   border: solid 1px var(--stroke);
   outline: none;
   color: var(--main-text);
-  font-family: var(--crimson);
+  font-family: var(--serif);
 }
-.form-container .error-message{
+.form-container .error-message {
   color: red !important;
   background: #ff00001e;
   padding: 10px;
@@ -182,6 +187,5 @@
     transform: scale(1);
   }
 }
-.user-name{
-  
+.user-name {
 }

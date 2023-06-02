@@ -4,8 +4,8 @@
   display: none;
 }
 ::selection {
-  background: var(--yellow);
-  color: black;
+  background: black;
+  color: white;
 }
 * {
   margin: 0;

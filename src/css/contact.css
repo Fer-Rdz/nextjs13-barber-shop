@@ -6,7 +6,7 @@
   align-items: center;
   width: 100%;
   height: 500px;
-  font-family: var(--crimson);
+  font-family: var(--serif);
   background: url("/A3.jpg");
   background-size: cover;
 }
@@ -14,13 +14,11 @@
   text-transform: capitalize;
   font-size: 4rem;
   font-weight: 700;
-  letter-spacing: -0.18rem;
   color: white;
 }
 .contact-hero .contact-info {
   position: absolute;
-  background: #0000006c;
-  backdrop-filter: blur(20px);
+  background: #ffffff;
   border-radius: 5px;
   display: flex;
   bottom: -60px;
@@ -28,19 +26,17 @@
   align-items: center;
   padding: 30px;
   gap: 50px;
-  border: solid 1px var(--stroke);
-  font-family: var(--crimson);
+  font-family: var(--serif);
   text-align: center;
   z-index: 1;
 }
 .contact-hero .contact-info h1 {
   font-size: 1.2rem;
-  color: white;
+  color: black;
 }
 .contact-hero .contact-info h2 {
   font-weight: normal;
-  font-style: italic;
-  color: white;
+  color: var(--yellow);
 }
 .contact-hero .contact-info .phone,
 .email {
@@ -49,8 +45,7 @@
 .contact-hero .contact-info .email .email-address {
   text-transform: lowercase;
 }
-.map-container{
-position: relative;
-z-index: 0;
-
+.map-container {
+  position: relative;
+  z-index: 0;
 }

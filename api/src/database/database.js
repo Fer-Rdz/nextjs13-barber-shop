@@ -1,8 +1,8 @@
 import { Sequelize } from "sequelize";
 
-export const sequelize = new Sequelize("barber", "host", "800512", {
+export const sequelize = new Sequelize("barber", "root", "Code800512", {
   host: "localhost",
-  dialect: "mssql",
+  dialect: "mysql",
   dialectOptions: {
     options: {
       useUTC: false, // Establece el uso de UTC en falso

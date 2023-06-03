@@ -10,7 +10,7 @@ export default function Home() {
   const [totalPrice, setTotalPrice] = useState(false);
   useEffect(() => {
     axios
-      .get("http://localhost:3512/dates")
+      .get("http://localhost:5000/dates")
       .then((response) => SetPrices(response.data));
   }, []);
   const addTotalPrices = () => {
@@ -66,7 +66,7 @@ export default function Home() {
   const [userCountByMonth, setUserCountByMonth] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3512/clients").then((response) => {
+    axios.get("http://localhost:5000/clients").then((response) => {
       const users = response.data;
       const countByMonth = calculateUserCountByMonth(users);
       setUserCountByMonth(countByMonth);

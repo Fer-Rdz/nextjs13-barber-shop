@@ -8,7 +8,7 @@ import "./models/date.js";
 
 const main = async () => {
   try {
-    await sequelize.sync({ force: false });
+    await sequelize.sync({ force: true });
     console.log("Connected to database");
     app.listen(port);
     console.log(`server running in port http://localhost:${port}/`);

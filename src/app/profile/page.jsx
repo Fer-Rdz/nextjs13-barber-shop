@@ -28,11 +28,11 @@ const Profile = () => {
   }, []);
   useEffect(() => {
     axios
-      .get(`http://localhost:3512/date/${login.id}`)
+      .get(`http://localhost:5000/date/${login.id}`)
       .then((response) => SetGetBookings(response.data));
   }, [login]);
   const handleDeleteBooking = (bookingID) => {
-    axios.delete(`http://localhost:3512/dates/${bookingID}`);
+    axios.delete(`http://localhost:5000/dates/${bookingID}`);
     window.location.reload();
   };
   const [editedEmail, setEditedEmail] = useState("");
@@ -49,7 +49,7 @@ const Profile = () => {
       return;
     }
     axios
-      .put(`http://localhost:3512/client/${userData.id}`, {
+      .put(`http://localhost:5000/client/${userData.id}`, {
         email: editedEmail,
       })
       .then((response) => {

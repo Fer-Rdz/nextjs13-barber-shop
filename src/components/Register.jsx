@@ -53,14 +53,14 @@ const Register = ({ isOpen, onClose, children }) => {
     }
     try {
       const response = await axios.get(
-        `http://localhost:3512/clients/${email}`
+        `http://localhost:5000/clients/${email}`
       );
       if (response.data) {
         // El correo electrónico ya está registrado
         alert("El correo electrónico ya está registrado.", "BARBEL");
       } else {
         // El correo electrónico no está registrado, proceder con el registro
-        await axios.post("http://localhost:3512/clients", {
+        await axios.post("http://localhost:5000/clients", {
           name: name,
           lastname: lastname,
           email: email,

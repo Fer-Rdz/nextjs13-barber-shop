@@ -17,7 +17,7 @@ const Bookings = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3512/dates")
+      .get("http://localhost:5000/dates")
       .then((response) => setBookings(response.data));
   }, []);
 

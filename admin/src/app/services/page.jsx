@@ -9,7 +9,7 @@ const Services = () => {
   const [services, setServices] = useState();
   useEffect(() => {
     axios
-      .get("http://localhost:3512/services")
+      .get("http://localhost:5000/services")
       .then((response) => setServices(response.data));
   }, []);
 
@@ -31,7 +31,7 @@ const Services = () => {
     }
     // Si el servicio no existe, enviar la solicitud POST
     axios
-      .post("http://localhost:3512/service", {
+      .post("http://localhost:5000/service", {
         name: name,
         price: price,
       })
@@ -48,7 +48,7 @@ const Services = () => {
 
   const handleDeleteService = (serviceId) => {
     axios
-      .delete(`http://localhost:3512/services/${serviceId}`)
+      .delete(`http://localhost:5000/services/${serviceId}`)
       .then((response) => {
         console.log("Service deleted:", response.data);
         window.location.reload();
@@ -62,12 +62,12 @@ const Services = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3512/services")
+      .get("http://localhost:5000/services")
       .then((response) => setServices(response.data));
   }, []);
 
   useEffect(() => {
-    axios.get("http://localhost:3512/services").then((response) => {
+    axios.get("http://localhost:5000/services").then((response) => {
       // Inicializar el estado 'services' con el precio actual de los servicios
       const initialServices = response.data.map((service) => ({
         ...service,
@@ -108,7 +108,7 @@ const Services = () => {
     // Enviar una solicitud PUT para actualizar los precios de los servicios
     servicesToUpdate.forEach((service) => {
       axios
-        .put(`http://localhost:3512/service/${service.id}`, {
+        .put(`http://localhost:5000/service/${service.id}`, {
           price: service.editedPrice,
         })
         .then((response) => {

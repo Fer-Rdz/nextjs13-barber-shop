@@ -59,12 +59,12 @@ const Testimonios = () => {
     }
     try {
       const id = userData.id;
-      const response = await axios.get(`http://localhost:3512/review/${id}`);
+      const response = await axios.get(`http://localhost:5000/review/${id}`);
       const existingReview = response.data;
 
       if (existingReview) {
         // Si ya existe una reseña, actualiza en lugar de crear una nueva
-        await axios.put(`http://localhost:3512/reviews/${existingReview.id}`, {
+        await axios.put(`http://localhost:5000/reviews/${existingReview.id}`, {
           message: text,
           stars: rating,
           client_id: userData.id,
@@ -72,7 +72,7 @@ const Testimonios = () => {
         console.log("Reseña actualizada");
       } else {
         // Si no existe una reseña, crea una nueva
-        await axios.post("http://localhost:3512/reviews", {
+        await axios.post("http://localhost:5000/reviews", {
           message: text,
           stars: rating,
           client_id: userData.id,

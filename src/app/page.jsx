@@ -46,7 +46,7 @@ const Home = () => {
   const [services, setServices] = useState();
   useEffect(() => {
     axios
-      .get("http://localhost:3512/services")
+      .get("http://localhost:5000/services")
       .then((response) => setServices(response.data));
   }, []);
   const [searchTerm, setSearchTerm] = useState("");
@@ -59,13 +59,13 @@ const Home = () => {
   const [testimonios, setTestimonios] = useState();
   useEffect(() => {
     axios
-      .get("http://localhost:3512/reviews")
+      .get("http://localhost:5000/reviews")
       .then((response) => setTestimonios(response.data));
   }, []);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3512/services")
+      .get("http://localhost:5000/services")
       .then((response) => setServices(response.data));
   }, []);
   return (

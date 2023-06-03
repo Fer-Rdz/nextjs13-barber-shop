@@ -11,11 +11,11 @@ const Users = () => {
   const [filteredBookings, setFilteredBookings] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3512/clients")
+      .get("http://localhost:5000/clients")
       .then((response) => setUsers(response.data));
   }, []);
   const handleDeleteUser = (userID) => {
-    axios.delete(`http://localhost:3512/clients/${userID}`).then((response) => {
+    axios.delete(`http://localhost:5000/clients/${userID}`).then((response) => {
       setUsers(users.filter((user) => user.id !== userID));
     });
   };

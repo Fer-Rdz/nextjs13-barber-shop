@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "install-all":"concurrently \"npm install\" \"cd admin && npm install\" \"cd api && npm install\"",
+    "dev-all":"concurrently \"npm run dev\" \"cd admin && npm run dev\" \"cd api && npm run dev\""
   },
   "dependencies": {
     "axios": "^1.4.0",
